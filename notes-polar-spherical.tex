@@ -10,13 +10,317 @@
 \end{abstract}
 
 
+\section{Polar coordinates}
 
+Polar coordinates are great for describing:
+\begin{itemize}
+    \item Circles centered at the origin.
+    \item Lines passing through the origin.
+    \item Circles passing through the origin.
+\end{itemize}
+
+To go from rectangular coordinates to polar coordinates, we use the formulas
+
+\begin{gather*}
+    r =  \sqrt{x^2 + y^2} \\
+    \theta = \arctan (  y/ x  )
+\end{gather*}
+
+To go from polar coordinates to rectangular coordinates, we use the formulas
+
+\begin{gather*}
+    x =  r \cos \theta  \\
+    y = r \sin \theta
+\end{gather*}
+
+The Jacobian for this coordinate system is given by 
+\[   \det \begin{pmatrix}
+    \frac{\partial x}{\partial r}   & \frac{\partial x}{\partial \theta}     \\
+    & \\ 
+    \frac{\partial y}{\partial r}   & \frac{\partial y}{\partial \theta} 
+\end{pmatrix}      =  \det   \begin{pmatrix}
+    \cos \theta    &  - r \sin \theta     \\
+    \sin \theta    &    r \cos \theta 
+\end{pmatrix}     =   r            \]
+
+
+\subsection{Circle centered at the origin}
+
+
+A circle of radius $c$ centered at the origin has equation $r = c$. Hence the interior is described as
+\begin{gather*}
+    0 \leq r \leq c \\
+    0 \leq \theta \leq 2 \pi
+\end{gather*}
+Note: $\theta$ goes from $0$ to $2 \pi$, but any interval of length $2 \pi$ would work. For example $- \pi \leq \theta \leq \pi$.
+
+\subsection{Angular sections}
+
+A line passing through the origin has rectangular equation $y = mx$, where $m$ is the slope. In polar coordinates, its equation is
+\[      \theta = \arctan (m)            \]
+The space between the lines with slopes $m_1$ and $m_2$ with $m_1 < m_2$, is given by 
+\[      \arctan(m_1) \leq \theta \leq \arctan (m_2)                           \]
+Note: the function $\arctan$ is not actually a function because there are pairs of angles with the same tangent. To successfully apply the above formulas, double check that your result coincides with what you actually want to describe. If not, you may need to replace $\arctan$ by $\arctan + \pi $. 
+
+
+\subsection{Circles passing through the origin}
+
+A circle passing through the origin has equation 
+\[     (x-a)^2 + (y-b)^2 = c^2     \]
+where $(a,b)$ is the center of the circle, $c$ is the radius, and $a^2 + b^2 = c^2$ to guarantee it passes through the origin.  Expanding this, we get 
+\[      x^2 + y^2 - 2 ax - 2 by + a^2 + b^2 = c^2                   \]
+Cancelling $a^2 + b^2 = c^2$, and writing $x$ and $y$ in terms of $r $ and $\theta$, we get 
+\[     r^2 - 2 a r \cos \theta   - 2 b r \sin \theta  = 0      \]
+Dividing over $r$, we get
+\[      r = 2 a \cos \theta + 2 b \sin \theta                    \]
+Therefore, the description of the interior of the circle in polar coordinates is given by
+\begin{gather*}
+    \arctan (b/a) - \pi /2 \leq \theta \leq \arctan (b/a) + \pi / 2 \\
+    0 \leq r \leq 2a \cos \theta + 2 b \sin \theta
+\end{gather*}
+
+
+
+\section{Cylindrical coordinates}
+
+Cylindrical coordinates are great for describing:
+\begin{itemize}
+    \item Vertical cylinders centered at the origin.
+    \item Vertical planes passing through the origin.
+\end{itemize}
+
+To go from rectangular coordinates to cylindrical coordinates, we use the same formulas as in polar coordinates
+
+\begin{gather*}
+    r =  \sqrt{x^2 + y^2} \\
+    \theta = \arctan (  y/ x  ) \\
+    z = z
+\end{gather*}
+
+To go from cylindrical coordinates to rectangular coordinates, we use the formulas
+
+\begin{gather*}
+    x =  r \cos \theta  \\
+    y = r \sin \theta   \\
+    z = z
+\end{gather*}
+
+The Jacobian for this coordinate system is given by 
+\[   \det \begin{pmatrix}
+    \frac{\partial x}{\partial r}   & \frac{\partial x}{\partial \theta}   & \frac{\partial x}{ \partial z}    \\
+   & & \\
+    \frac{\partial y}{\partial r}   & \frac{\partial y}{\partial \theta} &   \frac{\partial y}{ \partial z}   \\
+     & & \\
+     \frac{\partial z}{ \partial r}  &   \frac{\partial z}{ \partial \theta }   &  \frac{\partial z}{ \partial z}
+\end{pmatrix}      =  \det   \begin{pmatrix}
+    \cos \theta    &  - r \sin \theta  &  0    \\
+    \sin \theta    &    r \cos \theta  & 0   \\
+    0              &       0      &    1   
+\end{pmatrix}     =   r            \]
+
+
+
+\subsection{Vertical cylinder centered at the origin}
+
+
+A vertical cylinder  of radius $c$ centered at the origin has equation $r = c$. Hence the interior is described as
+\begin{gather*}
+    0 \leq r \leq c \\
+    0 \leq \theta \leq 2 \pi \\
+    - \infty < z < \infty 
+\end{gather*}
+
+\subsection{Vertical plane passing through the origin}
+
+In rectangular coordinates, a vertical plane passing through the origin has equation  $y = mx$. In cylindrical coordinates, its equation is
+\[      \theta = \arctan (m)   \]
+
+
+\section{Spherical coordinates}
+
+
+Spherical coordinates are great for describing:
+\begin{itemize}
+    \item Spheres centered at the origin.
+    \item Vertical cones with tip at the origin.
+    \item Spheres with center in the $z$-axis and passing through the origin.
+\end{itemize}
+
+To go from rectangular coordinates to spherical coordinates, we use the following formulas 
+
+\begin{gather*}
+    \rho =  \sqrt{x^2 + y^2 + z^2} \\
+    \theta = \arctan (  y/ x  ) \\
+    \phi =  \arctan \left( \left( \sqrt{ x^2  + z^2 } \right) / z  \right)
+\end{gather*}
+
+To go from spherical coordinates to rectangular coordinates, we use the formulas
+
+\begin{gather*}
+    x =  \rho  \cos \theta \sin \phi  \\
+    y = \rho \sin \theta  \sin \phi  \\
+    z = \rho \cos \phi
+\end{gather*}
+
+To get the Jacobian, we compute 
+\[   \det \begin{pmatrix}
+    \frac{\partial x}{\partial \rho}   & \frac{\partial x}{\partial \theta}   & \frac{\partial x}{ \partial \phi }    \\
+    & & \\
+    \frac{\partial y}{\partial \rho }   & \frac{\partial y}{\partial \theta} &   \frac{\partial y}{ \partial \phi  }   \\
+    & & \\
+      \frac{\partial z}{ \partial \rho }  &   \frac{\partial z}{ \partial \theta }   &  \frac{\partial z}{ \partial \phi }
+\end{pmatrix}      =  \det   \begin{pmatrix}
+    \cos \theta \sin \phi   &  - \rho  \sin \theta \sin \phi &  \rho \cos \theta \cos \phi    \\
+    \sin \theta  \sin \phi  &    \rho  \cos \theta \sin \phi  & \rho \sin \theta \cos \phi    \\
+     \cos \phi           &       0      &   -  \rho \sin \phi 
+\end{pmatrix}     =  -  \rho ^2 \sin \phi         \]
+Since the Jacobian is non-negative, we just consider the absolute value. This means the Jacobian of the spherical change of coordinates is
+\[      \rho ^2 \sin \phi      \]
+
+\subsection{Sphere centered at the origin}
+
+A sphere  of radius $c$ centered at the origin has equation $ \rho  = c$. Hence the interior is described as
+\begin{gather*}
+    0 \leq \rho  \leq c \\
+    0 \leq \theta \leq 2 \pi \\
+    0 \leq  \phi  \leq  \phi 
+\end{gather*}
+
+\subsection{Vertical cone with tip at the origin}
+
+In rectangular coordinates, a vertical cone with tip at the origin has equation  $z = m \sqrt{x^2 + y^2}$. In spherical coordinates, this equation becomes
+\[   \phi = \arctan ( 1/ m )   \]
+The region above the cone is given by 
+\[        0 \leq \phi \leq \arctan (1/m)     \]
+The region below the cone is given by 
+\[        \arctan (1/m) \leq \phi \leq \pi       \]
+
+
+\subsection{Sphere centered in the $z$-axis and passsing through the origin}
+
+A sphere passing through the origin and centered in the $z$-axis has equation 
+\[     x^2 + y^2 + (z-c)^2 = c^2     \]
+ Expanding this, we get 
+\[      x^2 + y^2  + z^2   = 2 c z                   \]
+Putting this in terms of $\rho$ and $\phi$, we get
+\[    \rho ^2 = 2 c \rho \cos \phi  \]
+Dividing over $\rho$, we get
+\[    \rho  = 2 c  \cos \phi  \]
+Therefore, the description of the interior of the sphere is
+\begin{gather*}
+ 0 \leq \theta \leq 2 \pi  \\
+ 0 \leq \phi \leq \pi / 2   \\
+ 0 \leq \rho \leq 2 c \cos \phi 
+\end{gather*}
+if $c > 0$ , and 
+\begin{gather*}
+ 0 \leq \theta \leq 2 \pi  \\
+ \pi / 2  \leq \phi \leq \pi    \\
+ 0 \leq \rho \leq  2 c \cos \phi 
+\end{gather*}
+if $c < 0$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Exercises}
 
 
 \begin{exercise}
-    Let $D \subset \mathbb{R}^2$ be the interior of a circle $C \subset \mathbb{R}^2$. Assume $C$ passes through the origin, and its center has polar coordinates $(r_0, \theta _0)$. Describe $D$ in polar coordinates.
+Compute the following integral
+\[       \int_0^3 \int _0  ^{\sqrt{9 - x^2 }}  (x^2 + y^2 ) \,  dy  dx      \]
+\end{exercise}
+The restrictions 
+\begin{gather*}
+    0 \leq x \leq 3 \\
+    0 \leq y \leq \sqrt{9 - x^2 }
+\end{gather*}
+represent the region in the first quadrant and inside the circle of radius three. Those restrictions in polar coordinates become
+\begin{gather*}
+    0 \leq \theta \leq \pi / 2 \\
+    0 \leq r \leq 3
+\end{gather*}
+The integrand is $x^2 + y^2$, which in polar coordinates becomes $r^2$. When we pass to polar coordinates, we multiply the integrand by the Jacobian, which is $r$. The integral becomes
+\[     \int _0 ^{\pi / 2} \int_ 0 ^3 r^3 \, dr d\theta                        \]
+Computing it, we get $ \left[   \pi / 2 \right]  \left[  3^4 / 4 \right] = 81 \pi / 8 $. 
+
+\begin{exercise}
+Compute the following integral
+\[       \int_{-2}^2 \int _0  ^{\sqrt{4 - y^2 }} \int_0 ^{ x^2 + y^2 }  z \,  dz dx dy      \]
 \end{exercise}
 
+The restrictions 
+\begin{gather*}
+    -2  \leq y \leq 2 \\
+    0  \leq x \leq \sqrt{4 - y^2 } \\
+    0  \leq z \leq  x^2 + y^2 
+\end{gather*}
+represent the region above the $xy$-plane, below the paraboloid $z = x^2 + y^2$, on the side of the $yz$-plane with positive $x$-coordinate, and inside the cylinder $x^2 + y^2 = 2$ of radius $2$. In cylindrical coordinates, these restrictions become 
+\begin{gather*}
+    - \pi / 2 \leq \theta \leq \pi / 2  \\
+    0 \leq r \leq 2 \\
+    0 \leq z \leq r^2
+\end{gather*}
+The integrand is already in terms of the coordinates $r,\theta, z$. By passing to cylindrical coordinates, we multiply the integrand by the Jacobian, which is $r$. The integral becomes
+\[     \int _{- \pi / 2 } ^{\pi / 2 } \int_ 0 ^2 \int _ 0 ^{ r^2 }  zr \, dz dr d\theta        \]
+Solving it, we get
+\[    =   \int  _{- \pi / 2 } ^{\pi / 2 } \int_ 0 ^2 r^3 \, drd \theta    =   \left[  \pi  \right]  \left[    2 ^4 / 4   \right]  = 4 \pi    \]
+
+
+\begin{exercise}
+Compute the following integral
+\[       \int_0^2 \int _x  ^{\sqrt{ 4 - x^2 }}  \int _{\sqrt{3 x^2 + 3 y^2 }} ^{  \sqrt{16 - x^2 - y^2 } }  z (x^2 + y^2 ) \, dz dy dx     \]
+\end{exercise}
+The restrictions 
+\begin{gather*}
+    0 \leq x \leq 2 \\
+    x \leq  y \leq \sqrt{4 - x^2 } \\
+    \sqrt{3 x^2 + 3 y^2} \leq z \leq \sqrt{16 - x^2 - y^2}
+\end{gather*}
+describe the region..... maybe it is too difficult to see directly, so first look at the restrictions on $x$ and $y$. They represent the region in the first quadrant above the line $y = x$ and inside the circle of radius 2. This means 
+\begin{gather*}
+    0 \leq r \leq 2  \\
+    \pi / 4 \leq \theta  \leq \pi / 2
+\end{gather*}
+The restrictions on $z$ correspond to the region above the cone $z = \sqrt{3} \sqrt{x^2 + y^2 } $ and inside the sphere $x^2 + y^2 + z^2 = 16$. In sphereical coordinates, this becomes
+\begin{gather*}
+  0 \leq \rho \leq 4    \\
+  0 \leq \phi \leq \pi / 6 
+\end{gather*}
+The integrand was $z (x^2 + y^2) $, which in spherical coordinates becomes $\rho ^3 \cos \phi \sin ^2 \phi $. When we pass to spherical coordinates, we multiply the integrand by the Jacobian, which is $\rho ^2 \sin \phi $. Then the integral becomes 
+\[     \int _{\pi / 4} ^{\pi / 2} \int_ 0 ^2 \int_ 0 ^{\pi / 6}    \rho ^ 5  \cos \phi \sin ^3 \phi \,  d \phi d \rho d \theta                    \]
+Solving it we get
+\[    =   \left[   \pi / 4  \right]  \left[  2 ^6 / 6  \right]  \left[    \sin ^4 (\pi / 6 ) / 4     \right]             =  3  \pi   / 8      .        \]
+
+
+\begin{exercise}
+Compute the following integral
+\[       \iiint_B  \frac{z}{ x^2 + y^2 + z^2 } dx dy dz     \]
+where $B$ is the interior of the ball $x^2 + y^2 + (z-2)^2 = 4$. 
+\end{exercise}
+
+The restrictions corresponding to $B$ in spherical coordinates are 
+\begin{gather*}
+    0 \leq \theta \leq 2 \pi \\
+    0 \leq \phi \leq  \pi / 2 \\
+    0 \leq \rho \leq 4 \cos \phi 
+\end{gather*}
+The integrand in terms of spherical coordinates becomes $\rho \cos \phi / \rho ^2  = \cos \phi / \rho $.  When we pass to spherical coordinates, we multiply the integrand by the Jacobian, which is $\rho ^2 \sin \phi $. Then the integral becomes 
+\[     \int _0 ^{ 2 \pi } \int_ 0 ^ { \pi / 2 } \int_ 0 ^{4 \cos \phi }    \rho \cos \phi \sin \phi       \,  d \rho d \phi d \theta                    \]
+Solving, we get
+\[   =    \left[  2 \pi     \right]  \int_0 ^{\pi / 2} \left[ (4 \cos \phi ) ^2 / 2  \right]  \cos \phi \sin \phi \, d \phi   = 4 \pi  \left[    \cos ^4 (0)  - \cos ^4 (  \pi / 2  )     \right]  = 4 \pi      \]
 
 
 \end{document}

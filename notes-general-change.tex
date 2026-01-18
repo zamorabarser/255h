@@ -1,0 +1,131 @@
+\documentclass{ximera}
+
+\title{General change of coordinates}
+\license{CC: 0}         % replace with an appropriate license, or set it in xmPreamble
+
+\begin{document}
+
+\begin{abstract}
+    General change of coordinates
+\end{abstract}
+
+\section{$uv$-substitution}
+
+
+Just like we use polar, cylindrical, and spherical integrals to solve integrals, we can use any other coordinate system. For simplicity, we restrict ourselves to dimension 2, but the concepts make sense in any dimensions.  
+
+If we write $x$ and $y$ in terms of the coordinates $u$ and $v$, and vice-versa, the Jacobian of this change of coordinates is given by the absolute value of the determinant of the matrix of partial derivatives.
+
+\[     \begin{pmatrix}
+    \frac{\partial x}{\partial u}   & \frac{\partial x}{\partial v }     \\
+  &  \\
+    \frac{\partial y}{\partial u}   & \frac{\partial y}{\partial v } 
+    \end{pmatrix}               \]
+
+
+
+
+\begin{exercise}
+Compute 
+\[    \iint _R \frac{3x}{4} dxdy    \]
+where $R$ is the region in the first quadrant between the hyperbolas $y = 1/x$ and $y = 5 / x$, and between the lines $y = x/ 3$ and $y = 2x$. 
+\end{exercise}
+
+We can rewrite the restrictions as
+\begin{gather*}
+    1 \leq xy \leq 5 \\
+    \frac{1}{3} \leq \frac{y}{x} \leq 2 
+\end{gather*}
+Hence if we introduce the variables 
+\begin{gather*}
+    u : = xy \\
+    v : = y/x
+\end{gather*}
+the restrictions become
+\begin{gather*}
+1 \leq u \leq 5 \\
+\frac{1}{3} \leq v \leq 2
+\end{gather*}
+Then we need to write $x$ and $y$ in terms of the new variables: 
+\begin{gather*}
+     x = \sqrt{u/v} \\
+     y = \sqrt{uv}
+\end{gather*}
+To get the Jacobian, we need the partial derivatives
+\begin{gather*}
+    \frac{\partial x}{\partial u} = \frac{1}{2} \cdot \frac{1}{\sqrt{uv}} \\
+    \frac{\partial x}{\partial v} =  -  \frac{1}{2} \cdot \frac{\sqrt{u}}{\sqrt{v}^3} \\
+    \frac{\partial y}{\partial u} =  \frac{1}{2} \cdot \frac{\sqrt{v}}{\sqrt{u}} \\
+    \frac{\partial y}{\partial v} =  \frac{1}{2} \cdot \frac{\sqrt{u}}{\sqrt{v}} 
+\end{gather*}
+
+Then the Jacobian is the absolute value of
+\[    \det \begin{pmatrix}
+   \frac{1}{2} \cdot \frac{1}{\sqrt{uv}} &   -  \frac{1}{2} \cdot \frac{\sqrt{u}}{\sqrt{v}^3} \\
+   \frac{1}{2} \cdot \frac{\sqrt{v}}{\sqrt{u}} &  \frac{1}{2} \cdot \frac{\sqrt{u}}{\sqrt{v}}
+\end{pmatrix}        = \frac{1}{4}  \left[  \frac{1}{v} + \frac{1}{v}    \right]   = \frac{1}{2 v}     \]
+
+The integrand in terms of the new variables is 
+\[   \frac{3x}{4} =  \frac{ 3 \sqrt{u}}{4 \sqrt{v}}   \]
+Then the integral becomes 
+\[        \int_1 ^5 \int_{1/3} ^2 \frac{3 \sqrt{u}}{  4 \sqrt{ v} } \cdot  \frac{1}{2v} \,\,  dvdu          \]
+Solving, we get
+\begin{align*}
+   \int_1 ^5 \int_{1/3} ^2 \frac{3 \sqrt{u}}{  4 \sqrt{ v} } \cdot  \frac{1}{2v} \,\,  dvdu    & =  \frac{3}{8} \int_1^5 \sqrt{u} \, du \int_{1/3}^2 \frac{1}{\sqrt{v}^3} \, dv \\
+    &  =   \frac{3}{8}  \left[  \frac{2}{3} (\sqrt{5}^3 - 1 )  \right]  \left[ 2  \left( \frac{1}{\sqrt{1/3}}  -   \frac{1}{\sqrt{2}}  \right)  \right] \\
+    & = \frac{1}{4} \left[ \sqrt{125} - 1  \right] \left[ \sqrt{3} - \frac{1}{\sqrt{2}} \right] 
+\end{align*}
+
+\begin{exercise}
+    Compute 
+    \[   \iint_R  9 y  \, dxdy             \]
+    where $R \subset \mathbb{R}^2$ is the parallelogram with vertices $(-3,1)$, $(0, -1)$, $(3,0)$, $(0,2)$.
+\end{exercise}
+
+The sides of the parallelogram are the lines
+\begin{gather*}
+    y = \frac{x}{3}  - 1 \\
+    y = \frac{x}{3}  + 2 \\
+    y = - \frac{2x}{3}  - 1 \\
+    y = - \frac{2x}{3}  + 2 
+\end{gather*}
+Then the parallelogram can be described as
+\begin{gather*}
+    -1 \leq y - \frac{x}{3} \leq 2  \\
+    -1 \leq y + \frac{2x}{3} \leq 2
+\end{gather*}
+If we introduce the variables
+\begin{gather*}
+    u : = 3 y - x  \\
+    v : = 3y + 2x
+\end{gather*}
+the bounds above become
+\begin{gather*}
+    -3 \leq u \leq 6 \\
+    -3 \leq v \leq 6
+\end{gather*}
+Then we need to write $x$ and $y$ in terms of $u$ and $v$. This is done by solving a linear system.
+\begin{gather*}
+    x = \frac{v-u}{3} \\
+    y = \frac{ v + 2 u }{9}
+\end{gather*}
+The Jacobian is the absolute value of the determinant
+\[
+\det  \begin{pmatrix}
+    \frac{\partial x}{\partial u}   & \frac{\partial x}{\partial v }     \\
+  &  \\
+    \frac{\partial y}{\partial u}   & \frac{\partial y}{\partial v } 
+    \end{pmatrix}  =
+\det \begin{pmatrix}
+    -\frac{1}{3} & \frac{1}{3} \\
+     &   \\
+    \frac{2}{9} & \frac{1}{9}
+\end{pmatrix} =  \frac{1}{27} (  - 1 - 2  ) = - \frac{1}{9}
+\]
+The integrand  written in terms of the new variables is $  9y =  v + 2u $. Then the integral becomes
+\[    \int_{-3} ^6 \int _{-3} ^6 (v + 2u) \left[ \frac{1}{9}  \right] \, du dv                         \]
+Solving, we get
+\[   =  \int_{-3} ^6 v dv + 2 \int_{-3} ^6 u du = \frac{1}{2} [     6^2 - 3 ^2 + 2 ( 6^2  - 3 ^2 ) ]  = \frac{81}{2}    \]
+
+
+\end{document}
