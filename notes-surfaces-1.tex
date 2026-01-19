@@ -9,9 +9,197 @@
     Surfaces and surface integrals of scalar functions
 \end{abstract}
 
+
+\section{Surfaces}
+
+A parametrized surface is a map $\varphi : U \to \mathbb{R}^3$ with $U \subset \mathbb{R}^2$ a region in the plane. 
+
+Sometimes, we call the image of $\varphi$ the surface (the object in the space) and call $\varphi$ the parametrization.
+
+\begin{example}
+    The graph of a function $f (x,y)$ of two variables, is the set $\{ (x,y,z ) \in \mathbb{R}^3 \vert  z = f(x,y) \}$. It admits the parametrization $\varphi : \mathbb{R}^2 \to \mathbb{R}^3$ given by 
+    \[     \varphi (u,v)  = (u,v, f(u,v))                    \]
+\end{example}
+
+
+\begin{example}
+    The cylinder $x^2 + y^2 = 1$ is a surface that admits the parametrization $\varphi : [0, 2 \pi] \times \mathbb{R} \to \mathbb{R}^3$ given by 
+    \[     \varphi (u,v)  = (  \cos u ,  \sin  u ,v )                    \]
+\end{example}
+
+\begin{example}
+    The sphere $x^2 + y^2 + z ^2 = 1$ is a surface that admits the parametrization $\varphi : [0, 2 \pi] \times [0, \pi ] \to \mathbb{R}^3$ given by 
+    \[     \varphi (u,v)  = (  \cos u \sin v ,  \sin  u \sin v  ,  \cos v )                    \]
+\end{example}
+
+
+\begin{example}
+    Assume a plane curve $\gamma : [a,b] \to \mathbb{R}^2$ given by  $\gamma (t) = (\gamma _ 1 (t) , \gamma _2  (t))$ satisfies $\gamma _1 > 0 $.  We can rotate it around the vertical axis to get a surface of revolution. This surface admits the parametrization $\varphi : [0, 2 \pi] \times   [a,b] \to \mathbb{R}^3 $ given by 
+    \[    \varphi (u,v) = ( \gamma _1 (v) \cos u , \gamma _1 (v) \sin u , \gamma _2 (v)  )                        \]
+\end{example}
+
+The Jacobian of the parametrization of a surface $\varphi : U \to \mathbb{R}^3$ is given by 
+\[       \text{Jacobian} (\varphi ) = \Big\vert \frac{\partial \varphi}{\partial u }  \times   \frac{\partial \varphi}{\partial u } \Big\vert                  \]
+
+
+Using this, the area of the surface is given by 
+\[           \text{area} (\varphi) = \iint_U   \Big\vert \frac{\partial \varphi}{\partial u }  \times   \frac{\partial \varphi}{\partial u } \Big\vert   \, du dv                             \]
+
+\section{Surface integrals of scalar functions}
+
+\begin{definition}
+    Let $\Sigma  \subset \mathbb{R}^3$ be a surface,  $\varphi :  U  \to \mathbb{R}^3$ a parametrization of $\Sigma $, and $f : \mathbb{R}^3 \to \mathbb{R}$ a continuous function. The integral of $f$ over $\Sigma $ is defined as 
+    \[     \iint_{\Sigma }   f\, dS : = \iint_U f(\varphi (u,v))   \Big\vert \frac{\partial \varphi}{\partial u }  \times   \frac{\partial \varphi}{\partial u } \Big\vert      \, dudv                   \]
+\end{definition}
+
+
+If $f (\varphi (u,v)) > 0 $, the integral above can be interpreted as the mass of a thin metal sheet with shape $\Sigma $  and density $f$. 
+
+Note: the above integral is independent of the parametrization. Later we will consider surface integrals of vector fields. They will change sign if we change the  orientation of the parametrization we use.
+
+
+
 \begin{exercise}
-    Let $D \subset \mathbb{R}^2$ be the interior of a circle $C \subset \mathbb{R}^2$. Assume $C$ passes through the origin, and its center has polar coordinates $(r_0, \theta _0)$. Describe $D$ in polar coordinates.
+    Let $\Sigma \subset \mathbb{R}^3$ be the portion of the paraboloid $z = 4 - x^2 - y^2$ above the $xy$-plane. Find the area of $\Sigma$ 
 \end{exercise}
+
+Inspired by cylindrical coordinates, we can use the parametrization $\varphi : [0,2] \times [0, 2 \pi ] \to \mathbb{R}^3 $ given by
+\[     \varphi (r,\theta) = (   r \cos \theta , r \sin \theta , 4 - r^2 )                    \]
+Then 
+\begin{gather*}
+    \frac{\partial \varphi}{\partial r } = ( \cos \theta , \sin \theta , -2r ) \\
+       \frac{\partial \varphi}{\partial \theta } = ( - r\sin \theta , r\cos \theta , 0 )
+\end{gather*}
+Taking cross product, 
+\[       \frac{\partial \varphi}{\partial r } \times  \frac{\partial \varphi}{\partial \theta } = (  2 r^2 \cos \theta  ,  2r^2 \sin \theta  ,  r   )                              \]
+Then the Jacobian is
+\[      \text{Jacobian} (\varphi) = \Big\vert   \frac{\partial \varphi}{\partial r } \times  \frac{\partial \varphi}{\partial \theta } \Big\vert = r \sqrt{4 r^2 + 1}        \]
+Then the area is
+\begin{align*}
+    \text{area} (\varphi) & = \int_0 ^2 \int _ 0 ^{2 \pi} r \sqrt{4 r^2 + 1} \, d\theta dr \\
+    & = 2 \pi \int _1 ^{17} \frac{1}{8} \sqrt{u} \, du \\
+    & = \frac{\pi}{4}  \left[ \frac{2}{3} ( \sqrt{17}^3 - 1 )  \right] \\
+    & = \frac{\pi}{6} (\sqrt{17}^3 - 1 )
+\end{align*}
+where we used the substitution $u = 4r^2 +1$ with $u ' = 8r $ and $1 \leq u \leq 17$
+
+
+
+\begin{exercise}
+    Let $\Sigma \subset \mathbb{R}^3$ be the portion of the sphere $x^2 + y^2 + z^2  = 1 $ above the cone $z = \frac{1}{\sqrt{3}} \sqrt{x^2 + y^2 } $. Find the area of $\Sigma$ and its average height. 
+\end{exercise}
+
+Inspired by spherical coordinates, we can use the parametrization $\varphi : [0,2\pi ] \times [0, \pi / 3 ] \to \mathbb{R}^3 $ given by
+\[     \varphi ( u , v  ) = (   \cos u \sin v , \sin u \sin v , \cos v )                    \]
+Then 
+\begin{gather*}
+    \frac{\partial \varphi}{\partial u } = (   - \sin u \sin v, \cos u \sin v  , 0  ) \\
+       \frac{\partial \varphi}{\partial v } = (   \cos u \cos v , \sin u \cos v , - \sin v     )
+\end{gather*}
+Taking cross product, 
+\[       \frac{\partial \varphi}{\partial u } \times  \frac{\partial \varphi}{\partial v } = (   -  \cos u  \sin ^2 v  , - \sin u \sin ^2 v , - \sin v \cos v   )                              \]
+Then the Jacobian is
+\[      \text{Jacobian} (\varphi) = \Big\vert   \frac{\partial \varphi}{\partial r } \times  \frac{\partial \varphi}{\partial \theta } \Big\vert = \sin v  \]
+Then the area is
+\begin{align*}
+    \text{area} (\varphi) & = \int_0 ^{2\pi } \int _ 0 ^{\pi / 3  }   \sin v  \, dv du \\
+    & = 2 \pi ( \cos (0) -  \cos (\pi / 3)  ) \\
+    & =  \pi 
+\end{align*}
+Note that the height of the point $\varphi (u,v) $ is given by the third coordinate, which is $\cos v$. To compute the average, we integrate this quantity and divide over the area:
+\begin{align*}
+    \iint_{\Sigma} z \, dS & = \int_ 0 ^{2 \pi } \int_ 0 ^{\pi / 3 } \cos v \sin v \, dv du \\
+    & =  2 \pi  \left[ \frac{1}{2} ( \sin ^2 (\pi /3)  - \sin^2 (0)  )          \right]\\
+    & = 3\pi / 4 . 
+\end{align*}
+Then the average height is given by
+\[            \left[    \iint_{\Sigma} z \, dS \right] / \text{area} (\varphi) = 3/4                         \]
+
+
+\begin{exercise}
+    Let $\Sigma \subset \mathbb{R}^3$ be the portion of the cone  $  z = \sqrt{ x^2 + y^2 } $ between the cylinders  $ x^2 + y^2 =1  $ and $x^2 + y^2 = 9$. Find the area of $\Sigma$. Assume a metal sheet with this shape has density $\rho (x,y,z) = e^{z^2} $. Find its mass.
+\end{exercise}
+
+Inspired by spherical coordinates, we can use the parametrization $\varphi : [1,3] \times [0, 2 \pi  ] \to \mathbb{R}^3 $ given by
+\[     \varphi ( u , v  ) = (   u \cos v ,  u \sin v , u  )                    \]
+Then 
+\begin{gather*}
+    \frac{\partial \varphi}{\partial u } = (   \cos v , \sin v , 1 ) \\
+       \frac{\partial \varphi}{\partial v } = ( -u \sin v  , u \cos v , 0     )
+\end{gather*}
+Taking cross product, 
+\[       \frac{\partial \varphi}{\partial u } \times  \frac{\partial \varphi}{\partial v } = (  - u \cos v , - u \sin v , u  )                              \]
+Then the Jacobian is
+\[      \text{Jacobian} (\varphi) = \Big\vert   \frac{\partial \varphi}{\partial r } \times  \frac{\partial \varphi}{\partial \theta } \Big\vert = u \sqrt{2}  \]
+Then the area is
+\begin{align*}
+    \text{area} (\varphi) & = \int_1 ^3 \int _ 0 ^{2\pi  }   u \sqrt{2}  \, dv du \\
+    & = 2 \pi (  \frac{1}{\sqrt{2}} (3^2 - 1)  ) \\
+    & =  8 \pi  \sqrt{2} 
+\end{align*}
+The mass is given by the integral
+\begin{align*}
+    \iint_{\Sigma} \rho \, dS & = \int_1 ^3 \int _ 0 ^{2\pi  }  [ e^{u^2} ]  [  u \sqrt{2}]  \, dv du \\
+    & = 2 \pi  \frac{1}{\sqrt{2}} (  e ^ 9 - e ) \\
+    & = \pi  \sqrt{2} (e^{9} - e)
+\end{align*}
+
+\section{Surfaces with multiple pieces}
+
+Some surfaces cannot be nicely covered by a single parametrization. It is common to need more than one parametrization. 
+
+\begin{exercise}
+    A metal sheet has shape $\Sigma $, where $\Sigma$ consists of the portion of the cylinder $x^2 + y^2 = 4$ between the planes $x + y + z = 0$ and $z=3$, and the portion of the sphere $x^2 + y^2 + (z-3)^2 = 4$ above the plane $z = 3$. It has density $\rho (x,y,z) = 5 - z$. Find its mass.
+\end{exercise}
+
+Inspired by cylindrical coordinates, for the cylinder part we can use the parametrization  $\varphi : U \to \mathbb{R}^3$ given by 
+\[      \varphi (u , v) = (2 \cos u , 2 \sin u , v)                   \]
+with $U $ given by the restrictions 
+\begin{gather*}
+    0 \leq u \leq 2 \pi  \\
+     - 2 \cos u - 2 \sin u \leq v \leq  3 
+\end{gather*}
+The derivatives of $\varphi$ are given by 
+\begin{gather*}
+    \frac{\partial \varphi}{\partial u } = ( -2 \sin u , 2 \cos u , 0 ) \\
+    \frac{\partial \varphi}{\partial v } = (0,0,1)
+\end{gather*}
+Then the Jacobian is given by 
+\[ \Big\vert   \frac{\partial \varphi}{\partial u } \times \frac{\partial \varphi}{\partial v }   \Big\vert  = 2 \]
+Then the integral over this piece becomes 
+\begin{align*}
+  &  \int_{0} ^{2 \pi}   \int_{-2 \cos u - 2 \sin u} ^3 (5 - v) 2   \, \, dv du  \\
+  & =    \int_{0} ^{2 \pi}  [ 5 ( 3 + 2 \cos u + 2 \sin u   ) - 9  + (2 \cos u + 2 \sin u ) ^2 ]  \,  du             \\
+  & =  30 \pi - 18 \pi   +  4  \int_{0} ^{2 \pi}   (\cos ^2 u + \sin^2 u + 2 \cos u \sin u  )   \,   du             \\
+  & = 20 \pi 
+\end{align*}
+
+Inspired by spherical coordinates, for the sphere part we can use the parametrization  $\psi : [0, 2 \pi ] \times [0, \pi /2 ] \to \mathbb{R}^3$ given by 
+\[      \psi (u , v) = (2 \cos u \sin v , 2 \sin u \sin v , 3 + 2 \cos v )                   \]
+The derivatives of $\psi$ are given by 
+\begin{gather*}
+    \frac{\partial \psi}{\partial u } = ( -2 \sin u \sin v , 2 \cos u \sin v , 0 ) \\
+    \frac{\partial \psi}{\partial v } = ( 2 \cos u \cos v , 2 \sin u  \cos v , - 2 \sin v)
+\end{gather*}
+Then the Jacobian is given by 
+\[ \Big\vert   \frac{\partial \psi }{\partial u } \times \frac{\partial \psi }{\partial v }   \Big\vert  =  4 \sin v  \]
+Then the integral over this piece becomes 
+\begin{align*}
+  &  \int_{0} ^{2 \pi}   \int_{0} ^{\pi /2 } (5 -  3 -  2 \cos v ) (4 \sin v)   \, \, dv du  \\
+  & = 16 \pi \int_0 ^{\pi /2}    ( 1 - \cos v ) \sin v \, dv \\
+  & = 8 \pi 
+\end{align*}
+Then the total mass is 
+\[   20 \pi + 8 \pi = 28 \pi       \]
+
+
+
+
+
+
+
+
+
 
 
 
