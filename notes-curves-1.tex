@@ -11,10 +11,201 @@
 
 \section{Curves}
 
-\begin{exercise}
-    Let $D \subset \mathbb{R}^2$ be the interior of a circle $C \subset \mathbb{R}^2$. Assume $C$ passes through the origin, and its center has polar coordinates $(r_0, \theta _0)$. Describe $D$ in polar coordinates.
-\end{exercise}
+
+A curve is a continuous function $\gamma : [a,b] \to \mathbb{R}^3$ from an interval to the plane or space.  It also corresponds to three continuous functions 
+\[     \gamma (t) = (x(t), y(t), z(t) )              \]
+which can be interpreted as a change of variables. It can be used to model:
+\begin{itemize}
+    \item A curved object in the plane or space like a wire or a fence.
+    \item A particle moving around. The coordinates $(x(t), y(t), z(t))$ represent the position at time $t$.
+\end{itemize}
+
+
+Sometimes, we call the image of $\gamma $ the curve (the object in the plane or space), and call $\gamma $ the parametrization. 
+
+
+The derivative 
+\[      \gamma ' (t) = (x'(t), y'(t), z'(t) )       \]
+is called the velocity. Under the second interpretation, the direction of $\gamma' (t) $ is the direction in which the particle is moving at time $t$. The length $\vert \gamma ' (t) \vert $ is the speed in which the particle is moving at time $t$.
+
+
+The Jacobian of this change of variables is 
+\[    \vert \gamma ' (t) \vert   = \sqrt{  (x' (t))^2 + (y'(t)) ^2 + (z'(t)) ^2   }              \]
+
+Using this, the length of a curve is defined as 
+\[      \text{length}(\gamma ) : = \int _ a ^b \vert \gamma ' (t) \vert \, dt                       \]
 
 \section{Line integrals of scalar functions}
+
+\begin{definition}
+    Let $C \subset \mathbb{R}^3$ be a curve,  $\gamma : [a,b] \to \mathbb{R}^3$ a parametrization of $C$, and $f : \mathbb{R}^3 \to \mathbb{R}$ a continuous function. The integral of $f$ along $C$ is defined as 
+    \[     \int_C   f\, ds : = \int_a ^b f(\gamma (t)) \vert \gamma ' (t) \vert  \, dt                   \]
+\end{definition}
+
+If $f (\gamma (t)) > 0 $, the integral above can be interpreted as the mass of a wire with shape $C$ density $f$. 
+
+Note: the above integral is independent of the parametrization, and in particular does not depend on the direction in which the curve is travelled by the parametrization. Later we will consider line integrals of vector fields. They will change sign if we travel the curve in the opposite direction.
+
+\section{Exercises}
+
+\begin{exercise}
+    Find the curve of intersection of the surfaces $y = x^2$ and $z = x^3$. 
+\end{exercise}
+
+We are looking for a curve 
+\[   \gamma (t) = (x(t) ,  y(t) ,   z(t)  )            \]
+The condition $y = x^2$ establishes that whatever we use for $x(t)$, then $y(t)$ is going to be the square of that. The condition $z = x^3$ establishes that whatever we use for $x(t)$, then $z(t)$ is going to be the cube of that. Using these restrictions, we can write
+\begin{gather*}
+    x(t) = t \\
+    y(t) = t^2 \\
+    z(t) = t^3
+\end{gather*}
+This yields
+\[   \gamma (t) = (t, t^2, t^3)      \]
+with $- \infty \leq t \leq \infty $
+
+
+\begin{exercise}
+    Find the curve of intersection of the surfaces $(x-2)^2 + (y- 3 )^2 = 4$ and $x+y+ z = 0$. 
+\end{exercise}
+We are looking for a curve 
+\[   \gamma (t) = (x(t) ,  y(t) ,   z(t)  )            \]
+that goes around the intersection of the surfaces, which is an ellipse because it is the intersection of a cylinder with a plane. In the equation of the plane, we can isolate each variable in terms of the others. This means that once two of $x(t)$, $y(t)$, and $z(t)$ are defined, the other will be defined in terms of the other two. The cylinder $(x-2)^2 + (y- 3 )^2 = 4$ has center $(2,3)$ and radius $2$, so to guarantee a curve winds around we can define
+\begin{gather*}
+    x(t) = 2 + 2 \cos t \\
+    y(t) = 3 + 2 \sin t
+\end{gather*}
+From the equation of the plane we get $z = - x - y $, so
+\[    z (t) = - x(t ) - y(t) = - 5 - 2 \cos t - 2 \sin t              \]
+Then the curve is
+\[     \gamma (t) = (  2 + 2 \cos t , 3 + 2 \sin t , - 5 - 2 \cos t - 2 \sin t    )       \]
+with $0 \leq t \leq 2 \pi $
+
+Note: using similar logic, a good idea would be to instead take the curve 
+\[       \gamma (t) = (  2 + t , 3 +  \sqrt{4 - t^2 }  , -5 - t - \sqrt{4 - t^2 }  )                 \]
+with $-2 \leq t \leq 2$. However, this curve would only cover half of the ellipse. 
+
+
+
+
+\begin{exercise}
+Find the tangent  line to the curve $\gamma (t)  = ( t \cos t , t \sin t , t )$ at the point $(- \pi , 0, \pi)$. Find the speed of the curve when it is passing through that point. 
+\end{exercise}
+
+To answer both questions, we need to identify the velocity
+\[   \gamma ' (t) = ( \cos t  - t \sin t , \sin t + t \cos t , 1 )              \]
+We also need to identify when the curve passes through that point. By looking at the third coordinate, we see that it is at $t = \pi$. At that time, the velocity is
+\[   \gamma ' (\pi ) = ( - 1 - 0 , 0 -  \pi , 1   ) = (- 1 , - \pi , 1 )        \]
+Then the line tangent to the curve at the point $(- \pi , 0, \pi )$ is
+\[    \alpha (t) = (- \pi  , 0, \pi)  + t (  -1, - \pi , 1  )      \]
+The speed at time $t = \pi$ is given by $\vert \gamma ' (\pi ) \vert = \sqrt{\pi ^2 + 2 }$
+
+
+\begin{exercise}
+Find the tangent  line to the curve $\gamma (t)  = ( t^2 + 1 , 3t + 1, t - t^2 ) $ at the point $( 5,7,-2 )$. Find the speed of the curve when it is passing through that point. 
+\end{exercise}
+
+To answer both questions, we need to identify the velocity
+\[   \gamma ' (t) = (  2t , 3, 1 - 2t   )              \]
+We also need to identify when the curve passes through that point. By looking at the third coordinate, we see that it is at $t = 2 $. At that time, the velocity is
+\[   \gamma ' (2  ) = (  4, 3, - 3     )        \]
+Then the line tangent to the curve at the point $( 5,7,-2 )$ is
+\[    \alpha (t) = ( 5,7,-2 )  + t (  4, 3 , -3   )      \]
+The speed at time $t = 2$ is given by $\vert \gamma ' (2) \vert = \sqrt{  16 + 9 + 9   } = \sqrt{34}$
+
+\begin{exercise}
+    Compute the length of the curve $\gamma (t) = (\cos t , \sin t , t)$ with  $0 \leq t \leq 4 \pi$ 
+\end{exercise}
+
+
+The length is the integral of the speed. We compute
+\begin{gather*}
+     \gamma ' (t) = (  - \sin (t) , \cos (t)  , 1  )     \\
+     \vert \gamma ' (t) \vert = \sqrt{2}
+\end{gather*}
+Then 
+\[       \text{length} (\gamma ) = \int_ 0 ^{4\pi } \vert \gamma ' (t) \vert \, dt   =  \int_ 0 ^{4\pi } \sqrt{2} \, dt         = 4 \pi \sqrt{2}                  \]
+
+\begin{exercise}
+    Compute the length of the curve $\gamma (t) = (  2 + t - t^3 / 3 ,  t^2 + 3  )$ with  $0 \leq t \leq 2 $ 
+\end{exercise}
+
+The length is the integral of the speed. We compute
+\begin{gather*}
+     \gamma ' (t) = (  1 - t^2 , 2t   )     \\
+     \vert \gamma ' (t) \vert = \sqrt{   (1 - t^2) ^2 + (2t)^2   } = \sqrt{ 1 - 2t^2 + t^4 + 4 t^2  } = \sqrt{ ( 1 +  t^2) ^2} = 1 + t^2 
+\end{gather*}
+Then 
+\[       \text{length} (\gamma ) = \int_ 0 ^{2} \vert \gamma ' (t) \vert \, dt   =  \int_ 0 ^{2 }  (1 + t^2 ) \, dt         =   2 + 2^3/3 =   14  /3              \]
+
+
+\begin{exercise}
+Assume a wire has the shape of a curve $C \subset \mathbb{R}^3$ with parametrization $\gamma : [  0, 1  ] \to \mathbb{R}^3$ given by 
+\[  \gamma (t) = (   t^2 ,    2t   ,      t^3   )      \]
+Further assume it has density given by $ \rho (x,y,z)  = 16 z +  10xy + 4y  $. Find its mass.
+\end{exercise}
+
+The mass is the integral of the density. To find the Jacobian, we compute
+\begin{gather*}
+    \gamma' (t) = (  2t ,  2  ,  3 t^2   ) \\
+    \vert \gamma ' (t) \vert = \sqrt{ 4 + 4 t^2  + 9 t^4 }
+\end{gather*}
+The integrand $rho = 16 z + 10 xy + 4y$ under the substitution 
+\begin{gather*}
+    x = t^2 \\
+    y = 2t  \\
+    z = t^3
+\end{gather*}
+becomes 
+\[     \rho (t) =   16 t^3 + 20 t^3 + 8t = 36 t^3 + 8 t        \]
+The integral then becomes, 
+\begin{align*}
+     \int_C \rho \, ds  & = \int _0  ^1 \rho (t) \vert \gamma ' (t) \vert \, dt    \\
+     & = \int _ 0 ^1 (8t + 36 t^3) \sqrt{  4 + 4 t^2 + 9 t^4 } \\
+      & = \int _ 4 ^ {17} \sqrt{u} \, du\\
+      & = \frac{2}{3}   \left[   \sqrt{17}^3 -   2^3  \right]
+\end{align*}
+where we used the substitution  $u = 4 + 4 t^2 + 9 t^3$. 
+
+
+\begin{exercise}
+    We are building a fence whose shape is the curve $C \subset \mathbb{R}^2$ with parametrization $\gamma (t) = ( 2 \sin t , 3 \cos t) $ with $\pi / 4 \leq t \leq \pi /2 $. Assume the cost of building at the point with coordinates $(x,y)$ is given by $f(x,y) = 200 xy $ dollars per meter. What is the cost of building the fence?
+\end{exercise}
+
+The total cost is the accumulation of $f$ along the trajectory $\gamma$. In other words, the integral 
+\[     \int _ C f \, ds     \]
+To compute it, we need the Jacobian, which we obtan by
+\begin{gather*}
+     \gamma ' (t) = ( 2 \cos t , -3 \sin t )\\
+     \vert \gamma ' (t) \vert =  \sqrt{ 4 \cos ^2 t + 9 \sin ^2 t  } = \sqrt{ 4 + 5 \sin ^2 t } 
+\end{gather*}
+The integrand $f(x,y) = 200 xy$ in terms of $t$ becomes 
+\[   f (t) =  1200 \cos t \sin t  \]
+Then the integral becomes 
+\[      \int _ C f \, ds  = \int _ {\pi / 4} ^{ \pi / 2 }            ( 1200 \cos t \sin t )  \sqrt{ 4 + 5 \sin ^2 t }  \, dt \]
+With the change of variables $ u = 4 + 5 \sin ^2 t$, we get $u ' = 10 \sin t \cos t$, and 
+\begin{align*}
+       \int _ C f \, ds  & = \int _{ 4 + \frac{5}{2} } ^{4 + 5} 120 \sqrt{u} \, du  \\
+       & = 80 \int_{13 / 2} ^{ 9} \frac{3}{2} \sqrt{u} du  \\
+       & = 80 \left[   27 - \sqrt{13/2} ^3  \right]
+\end{align*}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
