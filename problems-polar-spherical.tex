@@ -13,12 +13,19 @@
 \begin{exercise}
     Using polar coordinates, compute
     \[     \int_{-4}^0 \int _{- \sqrt{16 - x^2}} ^0 y \, dy dx     \]
+\begin{hint}
+    This is a quarter of the disk of radius 4
+\end{hint}
+    
 \end{exercise}
 
 
 \begin{exercise}
     Using polar coordinates, compute
     \[     \int_{0}^{3/ \sqrt{2}}  \int _{ y } ^{\sqrt{9 - y^2 }}  x^2y  \, dx dy     \]
+\begin{hint}
+    This is a sector with angle $\pi/4$ of the circle of radius 3
+\end{hint}
 \end{exercise}
 
 
@@ -26,11 +33,19 @@
     Using polar coordinates, compute
     \[   \iint _B  x  \, dx dy     \]
     where $B\subset \mathbb{R}^2$ is the region in the first quadrant inside the circle $x^2 + (y-3)^2 = 9$
+\begin{hint}
+    This is a quarter of the unit disk
+\end{hint}
 \end{exercise}
 
 \begin{exercise}
     Using polar coordinates, show that
     \[   \int _{- \infty } ^{\infty}   e^{- \frac{x^2}{2} }  \, dx  = \sqrt{2 \pi }     \]
+
+    
+\begin{hint}
+    The square of the integral on the left is $\iint_{\mathbb{R}^2} e^{- \frac{x^2 + y^2 }{2}} \, dA $.
+\end{hint}
 \end{exercise}
 
 
@@ -38,7 +53,7 @@
     Let $D \subset \mathbb{R}^2$ be the interior of the  circle $(x-1)^2 + (y-1)^2 = 2$. Using polar coordinates, find 
     \[     \iint_D \frac{x}{x^2 + y^2 } dA   \]
     \begin{hint}
-        The notes have a section on how to describe these regions in polar coordinates.        
+        The notes have a section on how to describe a region like this in polar coordinates.        
     \end{hint}
 \end{exercise}
 
@@ -48,6 +63,10 @@
 \begin{exercise}
     Using cylindrical coordinates, compute
     \[   \int _0 ^3  \int_ {- \sqrt{9 - y^2} } ^{\sqrt{9 - y^2}}  \int_ y ^{4}  x ^2 \, dz dxdy  \]
+    
+\begin{hint}
+    Deal separately with the $x,y$ variables and the $z$ variable. For cylindrical coordinates, most of the time you don't need to do anything to the $z$ variable
+\end{hint}
 \end{exercise}
 
 
@@ -56,11 +75,17 @@
 \begin{exercise}
     Using cylindrical coordinates, compute
     \[   \int _0 ^ 1   \int_ {- 1 } ^{1}  \int_z ^{ \sqrt{1 - y ^2 }}   y^2  \, dx dy dz  \]
+\begin{hint}
+This is the region inside the cylinder $x^2 + y^2 = 1$, above the $xy$-plane, and below the plane $z = x $. Verify this!!!
+\end{hint}
 \end{exercise}
 
 \begin{exercise}
     Using spherical coordinates, compute
     \[   \int _{-2} ^2  \int_ { - \sqrt{4 - x^2 } } ^{\sqrt{4 - x^2}}  \int_ {0} ^{\sqrt{4 - x^2 - y^2 }}  y^2  \, dz dydx  \]
+\begin{hint}
+This is a portion of the ball of radius 2
+\end{hint}
 \end{exercise}
 
 
@@ -70,6 +95,9 @@
     Using spherical coordinates, compute
     \[   \iiint _ E   zy^2  \, dV  \]
     where $E$ is the region above the cone $z = -  \sqrt{x^2 + y^2 }$ and inside the sphere $x^2 + y^2 + z^2  = 25 $
+\begin{hint}
+The equation of the cone is $\phi = 3 \pi / 4$ and the equation of the sphere is $\rho = 5$
+\end{hint}
 \end{exercise}
 
 
@@ -77,6 +105,9 @@
     Using spherical coordinates, compute
     \[   \iiint _ E  \frac{ z x^2}{x^2 + y^2}  \, dV  \]
     where $E$ is the region below the plane $z = 3$ and above the cone $z = \sqrt{x^2 + y^2} / \sqrt{3}$
+\begin{hint}
+The equation of the plane is $ \rho = 3 / \cos \phi$
+\end{hint}
 \end{exercise}
 
 
@@ -84,6 +115,9 @@
     Using spherical coordinates, compute
     \[   \iiint _ E  z  \, dV  \]
     where $E$ is the region inside the sphere $x^2 + y^2 + (z-3)^2 = 9 $
+    \begin{hint}
+        The notes have a section on how to describe a region like this in polar coordinates.        
+    \end{hint}
 \end{exercise}
 
 

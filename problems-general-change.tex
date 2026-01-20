@@ -6,16 +6,81 @@
 \begin{document}
 
 \begin{abstract}
-    Polar, cylindrical, and spherical coordinates
+    General change of coordinates
 \end{abstract}
 
+
 \begin{exercise}
-    Let $D \subset \mathbb{R}^2$ be the interior of a circle $C \subset \mathbb{R}^2$. Assume $C$ passes through the origin, and its center has polar coordinates $(r_0, \theta _0)$. Describe $D$ in polar coordinates.
-
-    \begin{hint}
+    Using an appropriate change of variables, compute 
+    \[     \iint_D   x^2 y   \, dA     \]
+    where $D \subset \mathbb{R}^2$ is the region between the hyperbolas $y = 2 / x$ and $y = 4 /x$ and the lines $y= 1$ and $y = 5$ 
+\begin{hint}
+    The region can be described as
+    \begin{align*}
+        2 &\leq xy \leq 4 \\
+        1 & \leq y \leq 5
+    \end{align*}    
+\end{hint}
     
-    \end{hint}
+\end{exercise}
 
+
+\begin{exercise}
+    Using an appropriate change of variables, compute 
+    \[     \iint_D   x^2   \, dA     \]
+    where $D \subset \mathbb{R}^2$ is the region between the hyperbolas $y = 2 / x$ and $y = 3 /x$ and the lines $y= x$ and $y = 4x$  
+\begin{hint}
+    The region can be described as
+    \begin{align*}
+        2 &\leq xy \leq 3 \\
+        1 & \leq y/x \leq 4
+    \end{align*}    
+\end{hint}
+\end{exercise}
+
+
+\begin{exercise}
+    Using an appropriate change of variables, compute 
+    \[     \iint_D  3x    \, dA     \]
+    where $D \subset \mathbb{R}^2$ is the parallelogram with vertices $(2,0)$, $(4,3)$, $(3,4)$, $(1,1)$.    
+\begin{hint}
+    The sides of the parallogram have slopes $3/2$ and $- 1$
+\end{hint}
+\end{exercise}
+
+\begin{exercise}
+    Using an appropriate change of variables, compute 
+    \[     \iint_D    \frac{y}{3y + x}   \, dA     \]
+    where $D \subset \mathbb{R}^2$ is the parallelogram with vertices $(-1,2)$, $(2,1)$, $(3,3)$, $(0,4)$.
+\begin{hint}
+    The sides of the parallogram have slopes $2$ and $- 1/3$
+\end{hint}
+\end{exercise}    
+
+
+
+
+\begin{exercise}
+    Using an appropriate change of variables, compute 
+    \[     \iint_D   (x+y)   \, dA     \]
+    where $D \subset \mathbb{R}^2$ is the region bounded by 
+    \begin{itemize}
+        \item the lines $y = -x$ and $y = -x + 2$
+        \item the portion of the parabola $y = x^2 $ with $x \geq 0$
+        \item the portion of the parabola $y = x (x-2)$ with $x \geq 1$
+    \end{itemize}  
+\begin{hint}
+    If 
+    \begin{align*}
+     x & = u + v \\
+     y & = u^2 - v
+    \end{align*}
+    then the region can be described as
+    \begin{align*}
+         0 &\leq u \leq 1 \\
+         0 & \leq v  \leq 2
+    \end{align*}   
+    \end{hint}
     
 \end{exercise}
 
