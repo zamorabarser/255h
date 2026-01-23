@@ -1,0 +1,231 @@
+\documentclass{ximera}
+
+\title{Line integrals of vector fields}
+\license{CC: 0}         % replace with an appropriate license, or set it in xmPreamble
+
+\begin{document}
+
+\begin{abstract}
+    Line integrals of vector fields
+\end{abstract}
+
+\section{Oriented curves}
+
+An oriented curve is a curve with a choice of direction. Each curve has two orientations: forward and backward. A parametrization of an oriented curve is a parametrization that travels the curve in the correct direction. 
+
+
+Note: the words ``forward'' and ``backward'' are subjective. 
+
+When a plane curve $\gamma : [a,b] \to \mathbb{R}^2 $ is closed and simple ($\gamma (a) = \gamma (b)$, and the curve doesn't self intersect), then we say it is positively oriented if it is oriented with counterclockwise direction and negatively oriented if it is oriented with clockwise direction. 
+
+For example, the curve 
+\[    \gamma (t) = (\cos t , \sin t)               \]
+with $0 \leq t \leq 2 \pi$ is positively oriented, while the curve
+\[     \sigma (t) = (  \sin t, \cos t  )                   \]
+with $0 \leq t \leq 2 \pi$ is negatively oriented.
+\section{Line integrals of vector fields}
+
+
+\begin{definition}
+    Let $C$ be an oriented curve,  $\gamma: [a,b] \to \mathbb{R}^3$ a parametrization, and 
+    \[    F (x,y,z) = \langle  P(x,y,z) , Q(x,y,z) , R(x,y,z)   \rangle         \]
+    a vector field. The integral of $F$ along $C$ is given by
+    \[  \int_C F \cdot ds  : = \int_C (P \, dx + Q\,  dy + R \, dz) : = \int_a^b F(\gamma (t) ) \cdot \gamma '(t) \, dt  .                \]
+\end{definition}
+
+Note: if you use a parametrization in the opposite direction, the integral changes sign. 
+
+If we let 
+\[ T(t) : = \frac{\gamma ' (t) }{ \vert \gamma ' (t) \vert }    \]
+be the unit tangent vector, then the line integral above becomes
+\begin{align*}
+    \int_C F \cdot ds & = \int_a ^b F(\gamma (t)) \cdot \gamma ' (t) \, dt \\
+    & = \int_a ^b F(\gamma (t)) \cdot \frac{ \gamma ' (t)}{\vert \gamma ' (t) \vert } \, \vert \gamma ' (t) \vert  \, dt \\
+    & = \int_C \left[   F  \cdot T          \right] \, ds 
+\end{align*}
+
+The dot product $F \cdot T$ represents ``how much is $F$ pointing in the direction in which $\gamma$ is moving''.  Therefore the integral can be interpreted as ``how much did the force field $F$ help $\gamma$ perform its trajectory''.
+
+\begin{example}
+    Let $F  = \langle 1,0 \rangle$ and $\alpha : [0,1] \to \mathbb{R}^2$, $\beta : [0,1] \to \mathbb{R}^2$, $\gamma : [0,1] \to \mathbb{R}^2$ be given by 
+    \begin{align*}
+        \alpha (t) & = (t,0) \\
+        \beta (t) & = (0,t) \\
+        \gamma (t) & = (-t,0) 
+    \end{align*}
+    This means: 
+    \begin{center}
+        $\alpha$ is moving right
+
+        $\beta$ is moving up
+
+        $\gamma $ is moving left
+    \end{center}
+    Since $F$ is pointing right, it is helping $\alpha $ perform its trajectory, it is not helping nor preventing $\beta$ from performing its trajectory, and is pushing $\gamma$ against its trajectory. From here we intuitively deduce that 
+    \begin{center}
+        $\int_{\alpha} F \, ds$ is positive
+
+        
+        $\int_{\beta} F \, ds$ is zero
+
+        
+        $\int_{\gamma} F \, ds$ is negative
+    \end{center}
+    This can be easily computed from the dot products:
+    \begin{align*}
+        F(\alpha (t)) \cdot \alpha ' (t) & = \langle 1,0 \rangle \cdot \langle 1,0 \rangle = 1\\
+        F(\beta (t)) \cdot \beta ' (t) & = \langle 1,0 \rangle \cdot \langle 0,1 \rangle = 0\\
+        F(\gamma (t)) \cdot \gamma ' (t) & = \langle 1,0 \rangle \cdot \langle -1,0 \rangle = -1
+    \end{align*}
+    Basically:
+    \begin{itemize}
+        \item if $\alpha$ goes with the flow of $F$, the integral $\int_{\alpha} F\cdot ds$ is positive.
+        \item if $\gamma $ is swimming against the current, the integral $\int_{\gamma} F \cdot ds$ is negative.
+    \end{itemize}
+
+\end{example}
+
+The integral $\int_C F \cdot ds$ is also called the work of $F$ along the trajectory. 
+
+\section{Exercises on line integrals}
+
+\begin{exercise}
+    Let $F (x,y,z) = \langle  - 2y , z^2 + 3x  , x - 1  \rangle$ and $C$ the curve with parametrization $\gamma : [0,2 ] \to \mathbb{R}^3$ given by
+    \[      \gamma (t) = (  t^2 - 3, 2 t , t^3  ).                      \]
+    Find 
+    \[    \int_C F \cdot ds      \]
+\end{exercise}
+
+Using the change of variables 
+\begin{align*}
+    x(t) & = t^2 - 3\\
+    y(t) & = 2t \\
+    z(t) & = t^3
+\end{align*}
+we get
+\[     F (\gamma (t) )   = \langle -4t  , t^6 + 3t^2 - 9 , t^2 - 4 \rangle             \]
+We also need
+\[ \gamma ' (t) = \langle  2t , 2, 3t^2 \rangle         \] 
+Then
+\begin{align*}
+\int_C F \cdot ds   & = \int_0 ^2  \langle -4t  , t^6 + 3t^2 - 9 , t^2 - 4 \rangle   \cdot \langle 2t , 2, 3t^2 \rangle \, dt \\
+& = \int _0 ^2 \left[   - 8 t^2 + 2t^6 + 6 t^2 - 18 + 3 t^4 - 12 t^2      \right] \, dt \\
+&= - \frac{64}{3}   + \frac{256}{7} + \frac{48}{3} - 36 + \frac{96}{5} - 32       
+\end{align*}
+
+
+
+
+\begin{exercise}
+    Let $F (x,y,z) = \langle  z + 1 ,  x , y   \rangle$ and $C$ the curve with parametrization $\gamma : [0, 3] \to \mathbb{R}^3$ given by
+    \[      \gamma (t) = (  e^{t}  , -  t^2  ,   t     ).               \]
+    Find 
+    \[    \int_C F \cdot ds      \]
+\end{exercise}
+
+Using the change of variables 
+\begin{align*}
+    x(t) & = e^t   \\
+    y(t) & =  - t^2    \\
+    z(t) & = t
+\end{align*}
+we get
+\[     F (\gamma (t) )   = \langle   t + 1 , e^t , - t^2   \rangle             \]
+We also need
+\[ \gamma ' (t) = \langle  e^t , - 2t , 1  \rangle         \] 
+Then
+\begin{align*}
+\int_C F \cdot ds   & = \int_0 ^3  \langle  t + 1 , e^t , - t^2   \rangle   \cdot \langle  e^t , - 2t , 1  \rangle \, dt \\
+& = \int _ 0 ^3  \left[  te^t + e^t  - 2 t e^t - t^2       \right] \, dt \\
+& = \left[   -t e^t + 2e^t - t^3 / 3       \right] \vert _{t =0} ^3 \\
+& = -3 e^3 + 2 e ^3 - 9 - 2 \\
+& = - e ^3 - 11 
+\end{align*}
+
+
+\section{Fundamental Theorem of Calculus II}
+
+The classic Fundamental Theorem of Calculus says that the integral of the derivative of a function $F(x)$ is the function $F$ itself:
+\[   \int_a^b F' (x) \, dx  = F(b) - F(a)             \]
+
+Something similar happens when we take the line integral of a gradient. Consider a differentiable function $f  : D \to \mathbb{R}$ with $D \subset \mathbb{R}^3$ and its gradient vector field  $  \nabla f $. Also take an oriented curve $C \subset \mathbb{R}^3$ and a parametrization $\gamma : [a,b] \to \mathbb{R}^3$. Recall that by the chain rule, we have
+\[      \frac{d}{dt} (f ( \gamma (t)) ) = \nabla f (\gamma (t) ) \cdot \gamma ' (t)    .     \]
+Therefore
+\begin{align*}
+    \int_C \nabla f \cdot ds & = \int_a^b \nabla f (\gamma (t)) \cdot \gamma ' (t) \, dt \\
+    & = \int _a^b  \frac{d}{dt} ( f ( \gamma (t) ) ) \, dt \\
+    & =  f (\gamma (b)) - f (\gamma (a)) 
+\end{align*}
+
+\begin{theorem}
+    Let $D \subset \mathbb{R}^3$ be a region, $f : D \to \mathbb{R}^3$ a differentiable function,  $C \subset \mathbb{R}^3$ an oriented curve with parametrization $\gamma : [a,b] \to \mathbb{R}^3$. Then
+    \[         \int_C \nabla f \cdot ds  = f (  \gamma (b)  )  - f(\gamma (a))                           \]
+    In particular, the integral $\int_C \nabla f \cdot ds$ does only depend on the endpoints of $C$ and not on the trajectory. 
+\end{theorem}
+
+
+
+
+\begin{exercise}
+    Let $F (x,y,z) = \langle  x , \cos y , e^z   \rangle$ and $C$ the curve with parametrization $\gamma : [0, \pi ] \to \mathbb{R}^3$ given by
+    \[      \gamma (t) = (   t^2 \sqrt{ t^2 + 1 } , e^{t^2} ,  t^2 \cos t    ).               \]
+    Find 
+    \[    \int_C F \cdot ds      \]
+\end{exercise}
+
+Note that 
+\[      \text{curl}(F) = \langle 0,0,0 \rangle   ,                         \]
+and the domain of $F$ is $\mathbb{R}^3$, so $F$ is conservative. To find the potential function, we do partial integration, 
+\begin{align*}
+    f(x,y,z) & = x^2 / 2 + g_1 (y,z) \\
+    f(x,y,z) & = \sin y + g_2 (x,z) \\
+    f(x,y,z) & = e^z + g_3(x,y)
+\end{align*}
+Matching terms, we get
+\[       f (x,y,z) = x^2 /2  + \sin y + e^z + C                        \]
+On the other hand, the endpoints of $C$ are
+\begin{align*}
+    \gamma (0) & = (   0, 1, 0 ) \\
+    \gamma (\pi ) & = (  \pi ^2 \sqrt{\pi ^2 + 1 } , e ^{\pi ^2} , - \pi ^2  )
+\end{align*}
+Therefore, 
+\begin{align*}
+    \int_C F \cdot ds & = f(   \pi ^2 \sqrt{\pi ^2 + 1 } , e ^{\pi ^2} , - \pi ^2    ) - f (0,1,0) \\
+    & = \pi ^4 (\pi ^2 + 1) /2 + \sin (e ^{\pi ^2}) + e ^{- \pi ^2} - \sin (1) - 1 
+\end{align*}
+
+
+\begin{exercise}
+    Show that the vector field 
+    \[     F(x,y) = \left\langle \frac{-y}{x^2 + y^2 } , \frac{x}{x^2 + y^2 }       \right\rangle     \]
+    is not conservative, even though it has zero curl.
+\end{exercise}
+
+Let $C \subset \mathbb{R}^2 $ be the unit circle oriented counterclockwise. Take the parametrization $\gamma (t) = (\cos t , \sin t)$ with $0 \leq t \leq 2 \pi $. Then 
+\begin{align*}
+    F(\gamma (t)) & = \left\langle  \frac{- \sin t}{ \cos ^2 t + \sin ^2 t } ,  \frac{\cos t}{ \cos ^2 t + \sin ^2 t }  \right\rangle \\
+    & = \langle - \sin t, \cos t \rangle
+\end{align*}
+Also, 
+\[     \gamma ' (t) = \langle - \sin t , \cos t \rangle                   \]
+Therefore, 
+\begin{align*}
+     \int_{C} F \cdot ds & = \int_0 ^{2 \pi } F(\gamma (t)) \cdot \gamma ' (t)  \, dt  \\ 
+        & = \int_0 ^{2 \pi } (\sin ^2 t + \cos ^2 t ) \, dt  \\ 
+     & = \int_0 ^{2 \pi } 1 \, dt \\
+     & = 2 \pi \neq 0
+\end{align*}
+If $F$ was conservative, we would have $F = \nabla f$ for some scalar function $f (x,y)$. By the Fundamental Theorem of Calculus, we would have
+\begin{align*}
+   \int_C F \cdot ds & = f(\gamma (2 \pi )) - f (\gamma (0)) \\
+    &= f (1,0) - f (1,0) \\
+    & = 0                            
+\end{align*}
+
+
+
+
+
+
+
+\end{document}
