@@ -1,0 +1,56 @@
+\documentclass{ximera}
+
+\title{Surface integrals of vector fields}
+\license{CC: 0}         % replace with an appropriate license, or set it in xmPreamble
+
+\begin{document}
+
+\begin{abstract}
+    Surface integrals of vector fields
+\end{abstract}
+
+\section{Oriented surfaces}
+
+A surface is called oriented if a side has been chosen. Given an oriented surface $\Sigma \subset \mathbb{R}^3$, it has a ``normal'' vector field $N : \Sigma \to \mathbb{R}^3$ such that for each point $p \in \Sigma$:
+\begin{itemize}
+    \item $N (p) $ is perpendicular to $\Sigma$ at $p$
+    \item $N(p)$ points in the preferred direction
+    \item $\vert N (p) \vert  = 1$ 
+\end{itemize}
+
+The vector field $N$ is also called an orientation, or the Gauss map of the surface. 
+
+Given an oriented surface $\Sigma$, we say a parametrization $\varphi : U \to \Sigma $ is compatible with the orientation if at each point, the normal vector 
+\[     \frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v}        (u,v)        \]
+points in the same direction as $N (\varphi (u,v)) $. In that case, 
+\[      N  (\varphi (u,v))   =   \dfrac{ \frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v} (u,v) }{ \vert  \frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v} (u,v) \vert  }   .   \]
+
+\section{Surface integrals of vector fields}
+
+\begin{definition}
+
+Let $\Sigma \subset \mathbb{R}^3$ be an oriented surface with a compatible parametrization $\varphi : U \to \Sigma$, and   
+\[  F(x,y,z)  = \langle  P (x,y,z)  , Q(x,y,z) , R (x,y,z) \rangle            \]
+a vector field. Then integral of $F$ over $\Sigma$ is given by 
+\[   \iint _{\Sigma} F  \cdot \, dS   : = \iint _U F( \varphi (u,v) ) \cdot \left( \frac{\partial \varphi}{\partial u}  \times \frac{\partial \varphi}{\partial v}   \right)  \,\, dudv                        \]
+\end{definition}
+
+Note that in that case:
+
+\begin{align*}
+     \iint _{\Sigma} F \cdot \, dS  & = \iint _U F( \varphi (u,v) ) \cdot \left( \frac{\partial \varphi}{\partial u}  \times \frac{\partial \varphi}{\partial v}   \right)  \,\, dudv  \\
+     & = \iint _U F( \varphi (u,v) ) \cdot \left( \dfrac{\frac{\partial \varphi}{\partial u}  \times \frac{\partial \varphi}{\partial v} }{ \vert  \frac{\partial \varphi}{\partial u}  \times \frac{\partial \varphi}{\partial v}   \vert }  \right) \vert  \frac{\partial \varphi}{\partial u}  \times \frac{\partial \varphi}{\partial v}   \vert   \,\, dudv  \\
+     & = \iint _U F ( \varphi (u,v) ) \cdot N ( \varphi (u,v) ) \, \vert  \frac{\partial \varphi}{\partial u}  \times \frac{\partial \varphi}{\partial v}   \vert   \,\, dudv  \\
+     & = \iint _U ( F  \cdot N ) \, dS , 
+\end{align*}
+Therefore, 
+\[    \iint _{\Sigma} F \cdot \, dS  = \iint _U ( F  \cdot N ) \,\, dS               \]
+meaning that the integral of the vector field $F$ is the same as the integral of the scalar function $F \cdot N$. 
+
+Note: if you use a parametrization not compatible with the orientation, the integral changes sign. 
+
+
+
+
+
+\end{document}
