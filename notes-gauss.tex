@@ -1,0 +1,46 @@
+\documentclass{ximera}
+
+\title{Divergence Theorem}
+\license{CC: 0}         % replace with an appropriate license, or set it in xmPreamble
+
+\begin{document}
+
+\begin{abstract}
+    Divergence Theorem
+\end{abstract}
+
+\section{Divergence Theorem}
+
+Let $F (x,y, z) $ be a space vector field, and $p $ a point in the domain of $F$. Let $\Sigma \subset \mathbb{R}^3 $ be a very small sphere around $p$, positively oriented (outwards).  Then the integral
+\[       \iint_{\Sigma} F \cdot ds    \]
+measures how much $F$ is pushing things away from $p$. It turns out we have another quantity that measures precisely that: 
+\[       \text{div}(F)(p)  .    \]
+Overall, if we have a region $E \subset \mathbb{R}^3$ with boundary $\partial E$ oriented positively, the two integrals
+\begin{gather*}
+      \iint_{\partial E}    F \cdot ds                  \\
+      \iiint_{E}  \text{div}(F)  \, dA      
+\end{gather*}
+measure how much the vector field is pointing outside of $E$. The Divergence Theorem (aka Gauss Theorem) states that they agree.
+
+\begin{theorem}[Divergence Theorem]  
+Let $F(x,y, z)$ be a space vector field, and $E \subset \mathbb{R}^3$ a region inside the domain of $F$. Then
+\[          \iint_{\partial E}    F \cdot ds  =    \iiint_{E}  \text{div}(F)  \, dV                  \]
+\end{theorem}
+
+
+
+
+
+\begin{exercise}
+
+\end{exercise}
+
+
+
+
+
+
+
+
+\end{document}
+

@@ -25,6 +25,15 @@ Given an oriented surface $\Sigma$, we say a parametrization $\varphi : U \to \S
 points in the same direction as $N (\varphi (u,v)) $. In that case, 
 \[      N  (\varphi (u,v))   =   \dfrac{ \frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v} (u,v) }{ \vert  \frac{\partial \varphi}{\partial u} \times \frac{\partial \varphi}{\partial v} (u,v) \vert  }   .   \]
 
+
+Not all surfaces are orientable. For example, a M\"obius band has only one side, so it is impossible to ``pick one side''. 
+
+We say a surface is closed if it is compact and does not have boundary. For example, a sphere, an ellipsoid, a torus, and the surface of a polyhedron are closed surfaces. Note that a closed orientable surface in $\mathbb{R}^3$ has an interior and an exterior. We say that it is positively oriented if the unit normal points ``outwards'' and negatively oriented if the unit normal points ``inwards''.
+
+
+
+
+
 \section{Surface integrals of vector fields}
 
 \begin{definition}
@@ -41,16 +50,105 @@ Note that in that case:
      \iint _{\Sigma} F \cdot \, dS  & = \iint _U F( \varphi (u,v) ) \cdot \left( \frac{\partial \varphi}{\partial u}  \times \frac{\partial \varphi}{\partial v}   \right)  \,\, dudv  \\
      & = \iint _U F( \varphi (u,v) ) \cdot \left( \dfrac{\frac{\partial \varphi}{\partial u}  \times \frac{\partial \varphi}{\partial v} }{ \vert  \frac{\partial \varphi}{\partial u}  \times \frac{\partial \varphi}{\partial v}   \vert }  \right) \vert  \frac{\partial \varphi}{\partial u}  \times \frac{\partial \varphi}{\partial v}   \vert   \,\, dudv  \\
      & = \iint _U F ( \varphi (u,v) ) \cdot N ( \varphi (u,v) ) \, \vert  \frac{\partial \varphi}{\partial u}  \times \frac{\partial \varphi}{\partial v}   \vert   \,\, dudv  \\
-     & = \iint _U ( F  \cdot N ) \, dS , 
+     & = \iint _{\Sigma} ( F  \cdot N ) \, dS , 
 \end{align*}
 Therefore, 
-\[    \iint _{\Sigma} F \cdot \, dS  = \iint _U ( F  \cdot N ) \,\, dS               \]
+\[    \iint _{\Sigma} F \cdot \, dS  = \iint _{\Sigma} ( F  \cdot N ) \,\, dS               \]
 meaning that the integral of the vector field $F$ is the same as the integral of the scalar function $F \cdot N$. 
 
 Note: if you use a parametrization not compatible with the orientation, the integral changes sign. 
 
+These are great to model:
+\begin{itemize}
+    \item Flow of a fluid across an imaginary boundary.
+    \item Flow of sodium/polasium/glucose/oxygen through the membrane of a cell.
+    \item Electric flux in electromagnetism.
+    \item Integral of $\text{Curl}(F)$ measures amount of rotation of objects over $\Sigma$.
+\end{itemize}
 
 
+\begin{exercise}
+    Let $\Sigma_1$ be the square with vertices $(0,0,0)$, $(1,0,0)$, $(1,1,0)$, $(0,1,0)$,  $\Sigma_2 $ the square with vertices $(0,0,0)$, $(1,0,0)$, $(1,0,1)$, $(0,0,1)$, and  $\Sigma_3 $ the square with vertices $(0,0,0)$, $(0,1,0)$, $(0,1,1)$, $(0,0,1)$, all oriented towards the first octant. In other words, 
+    \begin{itemize}
+        \item $\Sigma_1$ is the unit square in the $xy$-plane.
+        \item $\Sigma_2$ is the unit square in the $xz$-plane.
+        \item $\Sigma_3$ is the unit square in the $yz$-plane.
+    \end{itemize}
+    Let $F = \langle 1,0,0 \rangle$. Then 
+    \begin{gather*}
+      \iint_{\Sigma _1} F \cdot dS = \iint_{\Sigma _2} F \cdot dS = 0                            \\
+      \iint_{\Sigma _3} F \cdot dS = 1
+    \end{gather*}
+    This is because:
+    \begin{itemize}
+        \item The unit normal of $\Sigma_1 $ is $\langle 0,0,1 \rangle $. 
+        \item The unit normal of $\Sigma_2 $ is $\langle 0,1,0 \rangle $. 
+        \item The unit normal of $\Sigma_3 $ is $\langle 1,0,0 \rangle $. 
+    \end{itemize}
+    When we take the dot product with $F$, only the thid one doesn't cancel. In that case, we get
+    \begin{align*}
+       \iint_{\Sigma _3 }  F \cdot dS & = \iint_{\Sigma _3} ( F \cdot N ) \, dS \\ 
+       & = \iint_{\Sigma _3 } 1 \, dS \\
+       & = Area (\Sigma _3) \\
+       & = 1
+    \end{align*}
+    
+\end{exercise}
+
+
+
+\begin{exercise}
+    Let $\Sigma$ be the portion of the plane $x - y + z = 4$ inside the cylinder $x^2 + y ^2 = 9 $, oriented upwards. Compute
+    \[     \iint_{\Sigma}  \langle  3 + z  ,  2 x^2 , xy - 1  \rangle \cdot dS                   \]
+\end{exercise}
+
+We use the parametrization $\varphi : D \to \Sigma$, where $D \subset \mathbb{R}^2$ is the interior of the circle $ x^2 + y ^2 = 9 $ and $\varphi$ is given by
+\[        \varphi (u,v) = (u,v ,  4 - u + v )        \]
+Then we compute
+\begin{align*}
+    \frac{\partial \varphi}{\partial u } & = \langle 1, 0, -1 \rangle \\
+    \frac{\partial \varphi}{\partial v } & = \langle 0, 1, 1 \rangle \\
+    \frac{\partial \varphi}{\partial u } \times \frac{\partial \varphi}{\partial v } & = \langle 1, -1 ,1 \rangle 
+\end{align*}
+The cross product points ``up'' because the third component is positive, so the parametrization is compatible with the orientation. Setting $F(x,y,z) : = \langle 3 + z , 2x^2, xy - 1 \rangle $, we get
+\begin{align*}
+   F (\varphi(u,v)) \cdot  \frac{\partial \varphi}{\partial u } \times \frac{\partial \varphi}{\partial v } & =  \langle 3 + (4 - u + v) , 2 u^2 , uv - 1 \rangle  \cdot  \langle 1, -1 ,1 \rangle    \\
+   & = 6 - u + v - 2 u ^2 +  uv
+\end{align*}
+Then we compute, using polar coordinates, 
+\begin{align*}
+    \iint_{\Sigma} F \cdot dS & = \iint_{D}  [ 6 - u + v - 2 u ^2 +  uv]  \, dudv \\
+    & = \int_0 ^3 \int_0 ^{2\pi} r  [  6 - r \cos \theta + r \sin \theta -2 r^2 \cos^2 \theta + r^2 \sin \theta \cos \theta  ] \, d\theta dr\\
+    & = \int_0 ^3  [ 12 \pi  r - 2 \pi r^3   ] \, dr\\
+    & =  [ 6 \cdot  3^2 - \frac{1}{2} \cdot 3 ^4  ] \pi  \\
+    & =  \frac{27}{2} \pi
+\end{align*}
+
+
+\begin{exercise}
+    Let $\Sigma$ be the triangle with vertices $(3,0,0)$, $(0,6,0)$, $(0,0,5)$, oriented downwards. Compute
+    \[     \iint_{\Sigma}  \langle 3z , y, 2 \rangle \cdot dS                   \]
+\end{exercise}
+Note that $\Sigma$ is part of the plane $10x + 5y + 6z = 30$. We use the parametrization $\varphi : U \to \Sigma $ with $ U \subset \mathbb{R}^2 $ the triangle with vertices $(0,0)$, $(3,0)$, $(0,6)$, and 
+\[        \varphi  ( u ,v ) : = \left( u,v,  5 - \frac{5}{3} x - \frac{5}{6} y \right)     .      \]
+Using this change of variables, 
+\[      \langle 3z , y , 2 \rangle =  \langle  15 - 5u - \frac{5}{2} v , v, 2 \rangle          \]
+Also we compute the Jacobian
+\begin{align*}
+    \frac{\partial \varphi }{\partial u } & = \langle 1,0, - \frac{5}{3} \rangle \\
+    \frac{\partial \varphi }{\partial v } & = \langle 0,1, - \frac{5}{6} \rangle \\
+    \frac{\partial \varphi }{\partial u } \times \frac{\partial \varphi }{\partial v } & = \langle \frac{5}{3},  \frac{5}{6} , 1 \rangle     
+\end{align*}
+Since  $\frac{\partial \varphi }{\partial u } \times \frac{\partial \varphi }{\partial v }$ points upwards, it is NOT compatible with the orientation, so we put a minus sign! Then 
+\begin{align*}
+    \iint_{\Sigma} \langle 3z, y, 2 \rangle \cdot dS & = -\iint_D \langle  15 - 5u - \frac{5}{2} v , v, 2 \rangle    \cdot \langle \frac{5}{3},  \frac{5}{6} , 1 \rangle     \, dvdu \\
+    & =-  \int_0^3 \int_0 ^{6 - 2u} [   25 - \frac{25}{3}u - \frac{25}{6} v +  \frac{5}{6} v +  2  ]     \, dudv \\
+    & = - \int_0 ^3 [ 27 (6 - 2u ) - \frac{25}{3} u (6 - 2u) - \frac{5}{3} (6 - 2u)^2        ] \, du  \\
+    & =  -  \int_0 ^3 [  162 -54 u - 50 u + \frac{50}{3}u^2  - 60 + 40u - \frac{20}{3} u ^2 ] \, du \\
+    & =  -\int_0^3 [    102 -64 u + 10 u ^2    ] \, du \\
+    & = -[  306 - 32 \cdot 3^2 + 10 \cdot 3^2 ]\\
+    & = -108
+\end{align*}
 
 
 \end{document}
