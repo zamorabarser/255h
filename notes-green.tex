@@ -73,6 +73,28 @@ so we conclude
 
 
 
+\begin{example}[Area formula]
+    Let $D \subset \mathbb{R}^2$ be a compact region. If $\partial D$ is oriented positively, 
+    \[    \text{Area} (D) = \int_{\partial D} \langle 0,x \rangle \cdot ds = - \int_{\partial D } \langle  y , 0 \rangle \cdot ds      \]
+\end{example}
+This is immediate from Green's Theorem because 
+\begin{align*}
+    \text{curl}(\langle 0,x \rangle ) & = 1 \\
+    \text{curl} (\langle y,0 \rangle ) & = -1
+\end{align*}
+Hence
+\begin{align*}
+    \text{Area}(D) & = \iint _D 1 \, dA \\
+    & = \iint _D \text{curl}(\langle 0,x \rangle ) \, dA  \\
+    & = \int_{\partial D } \langle 0,x \rangle \cdot ds
+\end{align*}
+
+
+\begin{align*}
+    \text{Area}(D) & = \iint _D 1 \, dA \\
+    & = -  \iint _D \text{curl}(\langle y , 0 \rangle ) \, dA  \\
+    & = -  \int_{\partial D } \langle  y , 0 \rangle \cdot ds
+\end{align*}
 
 
 
