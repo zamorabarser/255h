@@ -32,8 +32,61 @@ Let $F(x,y, z)$ be a space vector field, and $E \subset \mathbb{R}^3$ a region i
 
 
 \begin{exercise}
-
+Let $\Sigma \subset \mathbb{R}^3$ be the unit sphere, oriented positively. Compute
+\[       \iint_{\Sigma} \langle x^2 + 3 , 5xy + 2 , 2z - 4 \rangle \cdot dS         \]
 \end{exercise}
+If $F (x,y,z) : = \langle x^2 + 3 , 5xy + 2 , 2z - 4 \rangle $, we can compute 
+\[    \text{div}(F) = 2x + 5x + 2 = 7x + 2 \] 
+Then by the Divergence Theorem, 
+\[              \iint_{\Sigma} \langle x^2 + 3 , 5xy + 2 , 2z - 4 \rangle \cdot dS  = \iiint_B (7x + 2) \, dV            \]
+where $B \subset \mathbb{R}^3$ is the unit ball. By symmetry, the integral of $x$ over $B$ is zero, so we get
+\[  \iiint_B (7x + 2) \, dV   = 2 \cdot  \text{vol} (B)   = \frac{8}{3} \pi \]
+
+
+
+
+\begin{exercise}
+Let $\Sigma \subset \mathbb{R}^3$ be the boundary of the box $[-2,1]\times [-1,4]\times [1,6]$, oriented inwards. Compute
+\[       \iint_{\Sigma} \langle  3x + y^2 - 5z, 2xy + 3x , x \cos y + e^z    \rangle \cdot dS         \]
+\end{exercise}
+If $F (x,y,z) : = \langle  3x + y^2 - 5z, 2xy + 3x , x \cos y + e^z    \rangle $, we can compute 
+\[    \text{div}(F) = 3 + 2x + e^z  \] 
+Then by the Divergence Theorem, 
+\[              \iint_{\Sigma} \langle  3x + y^2 - 5z, 2xy + 3x , x \cos y + e^z    \rangle \cdot dS  = - \int_{-2}^1 \int_{-1}^4 \int_1^6 (3 + 2x + e^z)\,  dzdydx            \]
+(the minus sign comes from the orientation). Then
+\begin{align*}
+    \int_{-2}^1 \int_{-1}^4 \int_1^6 (3 + 2x + e^z)\,  dzdydx    & =  225  - 25 (2^2 - 1) + 15 (e^6 - e)\\
+    & = 15 (10 + e^6 - e) 
+\end{align*}
+so we conclude 
+
+\[       \iint_{\Sigma} \langle  3x + y^2 - 5z, 2xy + 3x , x \cos y + e^z    \rangle \cdot dS  = - 15 (10 + e^6 - e )        \]
+
+
+\begin{exercise}
+Let $\Sigma \subset \mathbb{R}^3$ be the portion of the paraboloid $z = 4 - x^2 - y^2$ oriented upwards.  Compute
+\[       \iint_{\Sigma} \langle   x^2 - e^y  , 5 + 2x + \sin z , 3x + 12y^2 + 3    \rangle \cdot dS         \]
+\end{exercise}
+If $F (x,y,z) : = \langle   x^2 - e^y  , 5 + 2x + \sin z , 3x + 12y^2 + 3    \rangle $, we can compute 
+\[    \text{div}(F) =  2x \]
+Let $E\subset \mathbb{R}^3$ be the region below $\Sigma$ and above the $xy$-plane, and $\partial E $ its boundary oriented positively. Then 
+\[    \iint_{\partial E}    \langle   x^2 - e^y  , 5 + 2x + \sin z , 3x + 12y^2 + 3    \rangle \cdot dS    = \iiint_E  2x \, dV       \]
+Note that $E$ is symmetric with respect to $yz$-plane, so the integrals above are zero. Also note that $\partial E $ consists of two parts: $\Sigma$, and the disk $x^2 + y^2 \leq 4$ in the $xy$-plane, oriented downwards, which we call $\Sigma _1$. Then we compute
+\begin{align*}
+    \iint_{\Sigma }  & \langle   x^2 - e^y  , 5 + 2x + \sin z , 3x + 12y^2 + 3    \rangle \cdot dS \\
+    & = -  \iint_{\Sigma_1} \langle   x^2 - e^y  , 5 + 2x + \sin z , 3x + 12y^2 + 3    \rangle \cdot dS \\
+    & = - \iint_{\Sigma_1} \langle   x^2 - e^y  , 5 + 2x + \sin z , 3x + 12y^2 + 3    \rangle \cdot \langle 0,0,-1 \rangle \, dS \\
+    & = \iint_{\Sigma_1}  ( 3x + 12y^2 + 3  ) \, dS \\
+    & =  0 + 48 \pi + 12 \pi \\
+    & = 60 \pi
+\end{align*}
+
+
+
+
+
+
+
 
 
 

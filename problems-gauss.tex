@@ -12,12 +12,79 @@
 
 \section{Divergence Theorem}
 
-\begin{exercise}  
-    Let  $C\subset \mathbb{R}^3$ be the curve with parametrization $\gamma : [0,1 ] \to \mathbb{R}^3$ given by
-    \[      \gamma (t) = (  t + t^2 ,  t ^4 ,  2t + t^2 - 3  ).                      \]
-    Compute
-    \[    \int_C \langle  - y , x + 2 , z + 1  \rangle \cdot ds      \]
+
+
+
+\begin{exercise}
+Let $\Sigma \subset \mathbb{R}^3$ be the sphere $x^2 + y^2 + z^2 = 9$, negatively oriented. Compute
+\[   \iint_{\Sigma} \langle x^2 + 3z,  2y + xyz,  5z - x \rangle \cdot dS   \]
 \end{exercise}
+
+\begin{exercise}
+Let $\Sigma \subset \mathbb{R}^3$ be the boundary of the box $[-1,2]\times[0,3]\times[-2,1]$, positively oriented. Compute
+\[   \iint_{\Sigma} \langle 2x - yz,   3y + xz,  2yz + e^{x} \rangle \cdot dS    \]
+\end{exercise}
+
+\begin{exercise}
+Let $\Sigma \subset \mathbb{R}^3$ be the boundary of the solid bounded by the cylinder $x^2 + y^2 = 1$ and the planes $z=0$ and $z=1$, oriented outward. Compute
+\[    \iint_{\Sigma} \langle xz,    yz,    x^2 + y^2 \rangle \cdot dS     \]
+\end{exercise}
+
+\begin{exercise}
+Let $\Sigma \subset \mathbb{R}^3$ be the ellipsoid $\dfrac{x^2}{4} + \dfrac{y^2}{9} +  z^2 = 1$, oriented outward. Compute
+\[   \iint_{\Sigma} \langle 2x + yz, 3y + x \cos z,  e ^x + y^2 \rangle \cdot dS      \]
+\end{exercise}
+
+\begin{exercise}
+Let $\Sigma \subset \mathbb{R}^3$ be the closed surface consisting of the portion of the paraboloid $z = 9 - x^2 - y^2$ with $z \geq 0$, together with the disk $x^2 + y^2 \leq 9$ in the $xy$-plane, oriented outward. Compute
+\[    \iint_{\Sigma} \langle xy + 1,   yz - 3,   zx  + 5 y \rangle \cdot dS     \]
+\end{exercise}
+
+\begin{exercise}
+Let $\Sigma \subset \mathbb{R}^3$ be the closed surface consisting of the portion of the cone $z = \sqrt{x^2 + y^2}$ below  the plane $z =  4 $ together with the disk $x^2 + y^2 \leq 16$ in the plane $z=4$, oriented outward. Compute
+\[    \iint_{\Sigma} \langle xy + 3 y, 4 y +  z ,   5z + x \rangle \cdot dS      \]
+\end{exercise}
+
+
+\begin{exercise}
+Let $\Sigma \subset \mathbb{R}^3$ be the boundary of the tetrahedron with vertices $(3,0,0)$, $(0, -3, 0)$, $(0,0,2)$, $(0,0,0)$, oriented outward. Compute
+\[  \iint_{\Sigma} \langle 3x - 2y + e^z , 5x^2 - y  , z - \cos y \rangle \cdot dS    \]
+\end{exercise}
+
+
+
+
+
+
+\begin{exercise}
+Let $\Sigma_1 \subset \mathbb{R}^3$ be the disk $x^2 + y^2 \leq 1$ in the $xy$-plane, oriented upward, and $\Sigma _2 \subset \mathbb{R}^3$ the portion of the sphere $x^2 + y^2 + z^2 = 1 $ with $z \geq 0$, oriented upward. Consider a vector field $F : \mathbb{R}^3 \to \mathbb{R}^3$ with positive divergence. Which one is larger? 
+\[    \iint_{\Sigma _1} F \cdot dS \,\,\,\,\,\,\,\,\, \text{ or }  \,\,\,\,\,\,\,\,\, \iint_{\Sigma _2} F \cdot dS                       \]
+\end{exercise}
+
+
+
+
+\begin{exercise}
+Let $\Sigma_1 \subset \mathbb{R}^3$ be the disk $y^2 + z^2 \leq 1$ in the $yz$-plane, oriented towards the $x$-axis, and $\Sigma _2 \subset \mathbb{R}^3$ the portion of the sphere $x^2 + y^2 + z^2 = 1 $ with $x \leq 0$, oriented towards the $x$-axis. Consider a vector field $F : \mathbb{R}^3 \to \mathbb{R}^3$ with negative divergence. Which one is larger? 
+\[    \iint_{\Sigma _1} F \cdot dS \,\,\,\,\,\,\,\,\, \text{ or }  \,\,\,\,\,\,\,\,\, \iint_{\Sigma _2} F \cdot dS                       \]
+\end{exercise}
+
+
+
+
+
+\begin{exercise}
+Give a proof of the Divergence Theorem in the case where the region is rectangular. That is, let $E = [a_1, b_1] \times [a_2, b_2] \times [a_3, b_3] \subset \mathbb{R}^3$, $\partial E$ its boundary oriented positively, and $F (x,y,z)$ a vector field whose domain contains $E$. Then
+\[       \iint_{\partial E } F \cdot dS  = \iiint_E \text{div} (F) \, dV           \]
+\end{exercise}
+
+
+
+
+
+
+
+
 
 
 
