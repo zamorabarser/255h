@@ -16,6 +16,10 @@
     \[
         \int_C \langle  3x-y^2  - 1 , x + 2y \rangle \cdot  d \gamma 
     \]
+    
+    \begin{hint}
+    The curve is closed and travels counterclockwise, so the integral above equals the integral of $1 + 2 y $ (the curl of $\langle  3x-y^2  - 1 , x + 2y \rangle$) over the region surrounded by $C$. 
+\end{hint}
 \end{exercise}
 
 \begin{exercise}
@@ -23,6 +27,10 @@
     \[
         \int_C \langle x^2 y + 3x - 5, 2xy + e^y + 3 \rangle \cdot  d \gamma 
     \]
+    
+    \begin{hint}
+    The curve is closed and travels counterclockwise, so the integral above equals the integral of $ 2y - x^2 $ (the curl of $\langle  x^2 y + 3x - 5, 2xy + e^y + 3 \rangle$) over the region surrounded by $C$. 
+\end{hint}
 \end{exercise}
 
 \begin{exercise}
@@ -44,6 +52,10 @@
     \[
         \int_C \langle 3 y + x^2 - 2,  2x + y + 7 \rangle \cdot  d \gamma 
     \]
+    
+    \begin{hint}
+    The curve is closed and travels clockwise, so the integral above equals the integral of $ 3 -2 = 1 $ (minus the curl of $\langle 3 y + x^2 - 2,  2x + y + 7 \rangle  $) over the region surrounded by $C$. 
+\end{hint}
 \end{exercise}
 \begin{exercise}
     Let $C \subset \mathbb{R}^2$ be the curve that travels along straight lines from $(0,0)$ to $(3,1)$,  then from $(3,1) $ to $(4,4)$, then from $(4,4) $ to $(1,3)$, and then from $(1,3)$ back to $(0,0)$. Compute
@@ -59,6 +71,12 @@
     Let $C_1 \subset \mathbb{R}^2$ be the curve that travels along straight lines from $(0,0)$ to $(3,0)$,  then from $(3,0) $ to $(4,4)$. Let $C_2 \subset \mathbb{R}^2$ be the curve that travels along straight lines from $(0,0)$ to $(0,5)$,  then from $(0,5) $ to $(4,4)$. Let $C_3 \subset \mathbb{R}^2$ be the straight line from $(0,0)$ to $(4,4)$. Let $F : \mathbb{R}^2 \to \mathbb{R}^2$ be a vector field with positive curl. Among the integrals
     \[    \int_{C_1} F\cdot  d \gamma_1  , \,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,\,   \int_{C_2} F\cdot  d \gamma_2  , \,\,\,\,\,\,\,\,\, \,\,\,\,\,\,\,\,  \int_{C_3} F\cdot  d \gamma_3  ,        \]
     which one is the largest and which one the smallest?
+
+    \begin{hint}
+        The curve $C_4$ that travels along $C_1$ and then along $C_3$ but in the reverse direction, is closed and travels counterclockwise. Therefore
+        \[      \int_{C_1} F \cdot d_{\gamma _1} - \int_{C_3} F \cdot d _{\gamma _3} = \iint_{D} \text{curl}(F) \, dA                     \]
+        where $D$ is the region surrounded by $C_4$. 
+    \end{hint}
 \end{exercise}
 
 
