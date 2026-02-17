@@ -1,0 +1,426 @@
+\documentclass{ximera}
+
+\title{Forms}
+\license{CC: 0}         % replace with an appropriate license, or set it in xmPreamble
+
+\begin{document}
+
+\begin{abstract}
+    Forms
+\end{abstract}
+
+\section{Determinant-like functions}
+
+After all, the Fundamental Theorem of Calculus, the Curved Fundamental Theorem of Calculus, Green's Theorem, Stokes Theorem, and the Divergence Theorem, are instances of the Generalized Stokes Theorem. 
+
+To state it, we need to talk about forms, and to talk about forms, we need determinant-like functions called $k$-forms. Let's recall a couple of properties of determinants:
+
+\begin{proposition}
+    The determinants satisfy the following properties:
+    \begin{itemize}
+        \item (multilinearity) If all but one row is fixed, the determinant depends linearly on the non-fixed row.
+
+        \textbf{Examples:}
+            \[   \det \begin{pmatrix}
+                a_1 & a_2 & a_3 \\
+                b_1 & b_2 & b_3 \\
+                c_1 & c_2 & c_3
+            \end{pmatrix}      + \, \det \begin{pmatrix}
+                a_1 & a_2 & a_3 \\
+                b_1 & b_2 & b_3 \\
+                d_1 & d_2 & d_3
+            \end{pmatrix}      = \,  \det \begin{pmatrix}
+                a_1 & a_2 & a_3 \\
+                b_1 & b_2 & b_3 \\
+                c_1 + d_1 & c_2 + d_2 & c_3 + d_3
+            \end{pmatrix}             \]
+\[   \det \begin{pmatrix}
+                 5 &  8 \\
+                 1  &  2
+            \end{pmatrix}  + \,  \det \begin{pmatrix}
+                 5 &  8 \\
+                 2  &  2 
+            \end{pmatrix} = \,  \det \begin{pmatrix}
+                 5 &  8 \\
+                 3  &  4
+            \end{pmatrix}
+            \]
+    \[   \det \begin{pmatrix}
+                3 & -2 & 5 \\
+                5 & -1 & 2 \\
+                3 & 0 & -6
+            \end{pmatrix}    
+            + \, \det \begin{pmatrix}
+                3 & -2 & 5 \\
+                -2  & 3 & 4 \\
+                3 & 0 & -6
+            \end{pmatrix}      
+            = \,  \det \begin{pmatrix}
+                3 & -2 & 5 \\
+                3 & 2 & 6 \\
+                3 & 0 & -6
+            \end{pmatrix} 
+            \]
+            
+        \item (alternancy) If two rows are exchanged, the determinant changes sign.
+
+        \textbf{Examples:}
+            \[   \det \begin{pmatrix}
+                a_1 & a_2 & a_3 \\
+                b_1 & b_2 & b_3 \\
+                c_1 & c_2 & c_3
+            \end{pmatrix}        = -  \,  \det \begin{pmatrix}
+                a_1 & a_2 & a_3 \\
+                c_1 & c_2 & c_3 \\
+                b_1 & b_2 & b_3 
+            \end{pmatrix}              \]
+            
+            \[   \det \begin{pmatrix}
+                -1 & 9 \\
+                6 & 4 
+            \end{pmatrix}  = -  \,  \det \begin{pmatrix}
+                6 & 4  \\
+                -1 & 9 
+            \end{pmatrix}
+            \]
+            \[   \det \begin{pmatrix}
+                5 & 2 & 7 \\
+                4 & -2 &  3 \\
+                -3 & 4 & 0
+            \end{pmatrix}        = -  \,  \det 
+            \begin{pmatrix}
+                4 & -2 &  3 \\
+                5 & 2 & 7 \\
+                -3 & 4 & 0
+            \end{pmatrix}
+            \]
+    
+    \end{itemize}
+\end{proposition}
+
+
+
+\begin{definition}
+ Let $k, n \in \mathbb{N}$ be natural numbers. A simple $k$-form in $\mathbb{R}^n$ is a continuous function $\omega : (\mathbb{R}^n)^k \to \mathbb{R}$ that takes $k$ vectors in $\mathbb{R}^n$ (also known as a $k \times n$ matrix) and returns a number, satisfying the following properties:
+ \begin{itemize}
+     \item (multilinearity) When all but one of the vectors are fixed, $\omega$ depends linearly on the non-fixed vector: 
+     \[         \omega (\mathrm{v}_1,  \ldots , \mathrm{x} , \ldots  ,  \mathrm{v}_k  ) + \omega (\mathrm{v}_1,  \ldots , \mathrm{y} , \ldots  ,  \mathrm{v}_k  )  = \omega (\mathrm{v}_1,  \ldots , \mathrm{x} + \mathrm{y} , \ldots  ,  \mathrm{v}_k  )                     \]
+     \item (alternancy) If two inputs are exchanged, $\omega$ changes sign:
+     \[   \omega(\mathrm{v}_1 , \ldots, \mathrm{v}_i, \mathrm{v}_{i+1}, \ldots , \mathrm{v}_k) =  - \omega(\mathrm{v}_1 , \ldots, \mathrm{v}_{i+1}, \mathrm{v}_i, \ldots , \mathrm{v}_k)                         \]
+ \end{itemize}
+A simple $0$-form is just a number.
+
+\end{definition}
+
+
+It turns out that $k$-forms only exist if $k \leq n$ in the sense that if $k > n$, any simple $k$-form in $\mathbb{R}^n$ is just zero. 
+
+
+
+\section{Mini-determinants}
+
+The main examples of simple $k$-forms are mini-determinants. 
+
+\begin{definition}
+    Let $k,n \in \mathbb{N}$ be natural numbers, and $i_1 , \ldots , i_k  $ a collection of indices. The simple $k$-form (mini-determinant)
+    \[   dx^{i_1} \wedge \ldots \wedge  dx^{i_k}  : (\mathbb{R}^n) ^k \to \mathbb{R}                             \]
+    is defined as:
+    \[      dx^{i_1} \wedge \ldots \wedge  dx^{i_k}  \begin{pmatrix}
+        a_{11} & \ldots  & a_{1n} \\
+        \vdots &  \ddots &  \ldots \\
+        a_{k1} & \ldots & a_{kn}
+    \end{pmatrix}    =  
+    \det \begin{pmatrix}
+        a_{1i_1} & \ldots  & a_{1i_n} \\
+        \vdots &  \ddots &  \ldots \\
+        a_{ki_1} & \ldots & a_{ki_n}
+    \end{pmatrix}
+    \]
+\end{definition}
+
+\begin{notation}
+    In $\mathbb{R}^2$, $x^1 = x$ and $x^2 = y$. In $\mathbb{R}^3$, $x^1 = x$, $x^2 = y$, and $x^3 = z$.
+\end{notation}
+
+\textbf{Examples:}
+\begin{align*}
+     dx \wedge dy    \begin{pmatrix}
+        3  & -3  & -2 \\
+        5 & 2 & 7
+    \end{pmatrix}  &  = 
+    \det 
+    \begin{pmatrix}
+        3 & -3 \\
+        5 & 2
+    \end{pmatrix}\\ 
+    & \\
+    dx \wedge dz    \begin{pmatrix}
+        3  & -3  & -2 \\
+        5 & 2 & 7
+    \end{pmatrix}   & = 
+    \det 
+    \begin{pmatrix}
+        3 & -2 \\
+        5 & 7
+    \end{pmatrix}\\
+    & \\
+    dy \wedge dz    \begin{pmatrix}
+        3  & -3  & -2 \\
+        5 & 2 & 7
+    \end{pmatrix}   & = 
+    \det 
+    \begin{pmatrix}
+        -3 & -2 \\
+        2 & 7
+    \end{pmatrix}\\
+    & \\
+    dx \wedge dy    \begin{pmatrix}
+        5  & -1   \\
+        -3 & 4 
+    \end{pmatrix}  &  = 
+    \det 
+    \begin{pmatrix}
+        5  & -1   \\
+        -3 & 4
+    \end{pmatrix}
+\end{align*}
+
+\begin{align*}
+    dx (4,-6,7) & = 4 \\
+    & \\
+    dy (4,-6,7) & = -6 \\
+    & \\
+    dz (4,-6,7) & = 7 \\
+    & \\
+    dx (13, -5) & = 13 \\
+    & \\
+    dy (13, -5) & = -5  
+\end{align*}
+
+
+\[    dx \wedge dy \wedge dz \begin{pmatrix}
+    3 & -4  & 7 \\
+    11 & 2 & -3 \\
+    9 & 6 & -1
+    \end{pmatrix}  = \det 
+    \begin{pmatrix}
+    3 & -4  & 7 \\
+    11 & 2 & -3 \\
+    9 & 6 & -1
+    \end{pmatrix}         \]
+
+
+\begin{align*}
+    dx^1 \wedge dx^2   \begin{pmatrix}
+     4  & 7 & 3 & -9 \\
+    -3 & 11 & 6 & 5 
+    \end{pmatrix}  & =  \det \begin{pmatrix}
+     4  & 7  \\
+    -3 & 11  
+    \end{pmatrix}    \\
+    & \\
+    dx^2 \wedge dx^3   \begin{pmatrix}
+     4  & 7 & 3 & -9 \\
+    -3 & 11 & 6 & 5 
+    \end{pmatrix}  & =  \det \begin{pmatrix}
+     7  & 3  \\
+    11  & 6  
+    \end{pmatrix}    \\
+    & \\
+    dx^3 \wedge dx^4   \begin{pmatrix}
+     4  & 7 & 3 & -9 \\
+    -3 & 11 & 6 & 5 
+    \end{pmatrix}  & =  \det \begin{pmatrix}
+     3  & -9  \\
+    6  & 5  
+    \end{pmatrix}    
+\end{align*}
+
+
+\begin{theorem}
+    All simple $k$-forms in $\mathbb{R}^n$ are linear combinations of mini-determinants. Moreover, the set 
+    \[   \{ dx^{i_1} \wedge \ldots \wedge dx^{i_k} \, \vert \, 1 \leq i_1 < \ldots < i_k \leq n \}                        \]
+    is a basis of the vector space of simple $k$-forms in $\mathbb{R}^n$.
+\end{theorem}
+
+\section{Differentiable forms}
+
+\begin{definition}
+    A smooth $k$-form with domain $U \subset \mathbb{R}^n$ is a function 
+    \[   \omega : U \to \{ \text{simple } k\text{-forms in }\mathbb{R}^n \}       \]
+    with smooth coefficients. That is, 
+    \[      \omega (x) = \sum_{i_1 < \ldots < i_k} P_{i_1 , \ldots , i_k} (x) \, dx^{i_1} \wedge \ldots \wedge dx^{i_k} ,          \]
+    with each function $P_{i_1 , \ldots , i_k}$ being smooth  (a smooth $0$-form is just a smooth function $f : U \to \mathbb{R}$).
+\end{definition}
+
+
+\textbf{Examples:} 
+
+\begin{itemize}
+    \item Smooth $1$-forms in $\mathbb{R}$:
+    \begin{gather*}
+        f(x) \, dx \\
+        x^2 e ^x \, dx \\
+        (3 + \cos x ) \, dx \\
+        (5x - \sqrt{x} ) \, dx
+    \end{gather*}
+
+    \item Smooth $1$-forms in $\mathbb{R}^2$:
+    \begin{gather*}
+        P \, dx + Q \, dy \\
+        3xy \, dx + x^2 \cos y \, dy \\
+        5y^2 e^x \, dx \\
+        (\sqrt{x} + \cos y ) \, dx + \frac{1}{x} \, dy
+    \end{gather*}
+
+    \item Smooth $1$-forms in $\mathbb{R}^3$:
+    \begin{gather*}
+        P \, dx + Q \, dy + R \, dz \\
+        y^2 \cos x \,dx + x \sin z \, dy + z x^2 \, dz \\
+        2xz \, dy + ze^y\cos x \,dz    \\
+        (\sin y + \sin z ) \, dx +  e^x \cos y  \, dy + (\cos x - 1 ) \, dz
+    \end{gather*}
+
+    
+    \item Smooth $2$-forms in $\mathbb{R}^2$:
+    \begin{gather*}
+        f(x,y) \, dx \wedge dy \\
+        (e ^x \sin y + 3xy) \,   dx \wedge dy\\
+         (5y - x \sqrt{y})\, dx \wedge dy    \\
+         (e^x - x \cos y )\, dx \wedge dy
+    \end{gather*}
+
+    
+    \item Smooth $2$-forms in $\mathbb{R}^3$:
+    \begin{gather*}
+        P \, dy \wedge dz + Q \, dz \wedge dx + R \, dx \wedge dy \\
+        (5x^2 + e^z) \,   dx \wedge dy + (2x \sin z  + 3) \, dx \wedge dz \\
+         ( 3 \sqrt{x} + \cos y )\, dx \wedge dy - z\, dy \wedge dz    \\
+         (7y + y^2 e^x)\, dy \wedge dz + (2e^y - \cos x) \, dx \wedge dy
+    \end{gather*}
+
+    \item Smooth $3$-forms in $\mathbb{R}^3$:
+    \begin{gather*}
+        f(x,y,z) \, dx \wedge dy \wedge dz \\
+        (e^x - y^2 z + \cos z) \, dx \wedge dy \wedge dz \\
+        (3xyz + y^2 - \sqrt{z}) \, dx \wedge dy \wedge dz 
+    \end{gather*}
+
+\end{itemize}
+
+
+General form of a 
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+         &  in $\mathbb{R}$  & in $\mathbb{R}^2$ & in $\mathbb{R}^3$  \\
+\hline
+$0$-form   &  $f(x)$  & $f(x,y)$ & $f(x,y,z)$  \\
+\hline
+$1$-form   &  $f(x) \, dx$  & $P\,dx + Q \, dy$ & $P\, dx + Q \, dy + R \, dz$  \\
+\hline
+$2$-form   &  $0$  & $f(x,y)\,dx \wedge dy$ & $P\, dy \wedge dz + Q \, dz \wedge dx + R \, dx \wedge dy$  \\
+\hline
+$3$-form   &  $0$  & $0$ & $f(x,y,z ) \, dx \wedge dy \wedge dz $  \\
+\hline
+$4$-form   &  $0$  & $0$ & $0 $  \\
+\hline
+         
+    \end{tabular}
+\end{center}
+
+\section{Manifolds}
+
+In general, $k$-forms can be integrated over $k$-dimensional manifolds. $0$-dimensional manifolds are points, $1$-dimensional manifolds are curves, $2$-dimensional manifolds are surfaces.
+
+\begin{definition}
+    A parametrized $k$-manifold in $\mathbb{R}^n$ is a smooth map $\varphi : D \to \mathbb{R}^n$ with $D \subset \mathbb{R}^k$ a region. We often also call $M : = \varphi (D) \subset \mathbb{R}^n$ the manifold.  
+\end{definition}
+
+\begin{definition}
+    The integral of a smooth $k$-form $\omega$ with domain  $U \subset \mathbb{R}^n$ over a parametrized $k$-manifold $\varphi : D \to M \subset U$ is given by 
+    \[  \int \cdots \int_{M} \omega \, d \varphi  : =   \int \cdots \int _D \omega (\varphi(x_1, \ldots , x_k) ) \left(   \frac{\partial \varphi}{\partial x_1} , \ldots ,     \frac{\partial \varphi}{\partial x_k}    \right )  \, dx_1 \ldots dx_k                       \]
+\end{definition}
+
+
+\begin{example}[$k=1$, $n=1$] A differentiable $1$-form in $\mathbb{R}$ has the formula
+\[          \omega  = f(x ) \, dx    .   \]
+    Given an interval $[a,b] \subset \mathbb{R}$, the inclusion $ \varphi : [a,b] \to \mathbb{R}$ is a parametrized $1$-manifold.  Then
+    \[
+           \int_{[a,b]} \omega \, d \varphi    = \int_a ^b f(x)\, dx 
+    \]
+    This is the usual notion of integral.
+\end{example}
+
+
+\begin{example}[$k=1$, $n=2$] A differentiable $1$-form in $\mathbb{R}^2$ has the formula
+\[          \omega  = P \, dx + Q \, dy    .   \]
+    A parametrized $1$-manifold is a curve $\gamma : [a,b] \to C \subset  \mathbb{R}^2$. Then
+    \begin{align*}
+           \int_{C} \omega \, d \gamma  & = \int_a ^b [ P (\gamma (t)) \, dx (\gamma ' (t)) + Q (\gamma (t)) \, dy (\gamma ' (t))      ] \, dt  \\
+           & = \int_a ^b \langle P (\gamma (t)) , Q (\gamma (t)) \rangle \cdot \gamma ' (t) \, dt \\
+           & = \int _{C} \langle P, Q \rangle  \cdot d \gamma  
+    \end{align*}
+    This is the work of $\langle P, Q \rangle $ along $C$.
+\end{example}
+
+
+
+
+
+\begin{example}[$k=1$, $n=3$] A differentiable $1$-form in $\mathbb{R}^3$ has the formula
+\[          \omega  = P \, dx + Q \, dy  + R \, dz   .   \]
+    A parametrized $1$-manifold is a curve $\gamma : [a,b] \to C \subset  \mathbb{R}^3$. Then
+    \begin{align*}
+           \int_{C} \omega \, d \gamma  & = \int_a ^b [ P (\gamma (t)) \, dx (\gamma ' (t)) + Q (\gamma (t)) \, dy (\gamma ' (t))   + R(\gamma (t) ) \, dz (\gamma ' (t))    ] \, dt  \\
+           & = \int_a ^b \langle P (\gamma (t)) , Q (\gamma (t)), R (\gamma (t)) \rangle \cdot \gamma ' (t)  \, dt \\
+           & = \int _{C} \langle P, Q , R  \rangle  \cdot d \gamma 
+    \end{align*}
+    This is the work of $\langle P, Q, R \rangle $ along $C$.
+\end{example}
+
+\begin{example}[$k=2$, $n=2$] A differentiable $2$-form in $\mathbb{R}^2$ has the formula
+\[          \omega  = f(x ,y) \, dx \wedge dy   .   \]
+    Given a region  $D \subset \mathbb{R}^2$, the inclusion $ \varphi : D \to \mathbb{R}^2 $ is a parametrized $2$-manifold.  Then
+    \[
+           \iint_{D} \omega \, d \varphi    = \iint_D f(x,y)\, dA 
+    \]
+    This is the usual notion of integral.
+\end{example}
+
+
+
+\begin{example}[$k=2$, $n=3$] A differentiable $2$-form in $\mathbb{R}^3$ has the formula
+\[          \omega  = P \, dy\wedge dz + Q \, dz \wedge dx + R \, dx \wedge dy   .   \]
+    A parametrized $2$-manifold is a surface $\varphi : D \to \Sigma  \subset  \mathbb{R}^3$. Then
+    \begin{align*}
+           \iint_{\Sigma} \omega \, d \varphi   = \iint_D  \Big{[}  P (\varphi (u,v)) &\, dy \wedge dz  \left( \frac{\partial \varphi }{\partial u} , \frac{\partial \varphi }{\partial v}    \right) + Q (\varphi (u,v)) \, dz \wedge dx \left( \frac{\partial \varphi }{\partial u} , \frac{\partial \varphi }{\partial v}    \right)  \\
+           &  + R (\varphi (u,v) )\, dx \wedge dy \left( \frac{\partial \varphi }{\partial u} , \frac{\partial \varphi }{\partial v}    \right) \Big{]}dudv \\
+            = \iint_D  \Big{[} P (\varphi (u,v))& \left(\frac{\partial y}{\partial u} \frac{\partial z}{\partial v} - \frac{\partial z}{\partial u} \frac{\partial y}{\partial v}   \right)  + Q (\varphi (u,v)) \left(\frac{\partial z}{\partial u} \frac{\partial x}{\partial v} - \frac{\partial x}{\partial u} \frac{\partial z}{\partial v}   \right)  \\
+            & + R (\varphi (u,v)) \left(\frac{\partial x}{\partial u} \frac{\partial y}{\partial v} - \frac{\partial y}{\partial u} \frac{\partial x}{\partial v}   \right)  \Big{]} \, dudv \\
+            = \iint_D \Big{\langle }  P,Q,R \Big{\rangle}  \,\, \cdot &\,\, \left(  \frac{\partial \varphi}{ \partial u } \times \frac{\partial \varphi}{ \partial v }     \right) \, dudv \\
+            = \iint_{\Sigma } \,\,  \langle P, Q, R \rangle \,\, \cdot \, \, & dS
+            \end{align*}
+        This is the flux of $\langle P, Q, R \rangle $ across $\Sigma$.
+\end{example}
+
+
+\begin{example}[$k=3$, $n=3$] A differentiable $3$-form in $\mathbb{R}^3$ has the formula
+\[          \omega  = f(x ,y, z) \, dx \wedge dy \wedge dz    \]
+    Given a region  $E \subset \mathbb{R}^3$, the inclusion $ \varphi : E \to \mathbb{R}^3 $ is a parametrized $3$-manifold.  Then
+    \[
+           \iiint_{E} \omega \, d \varphi    = \iiint_E f(x,y,z)\, dV 
+    \]
+    This is the usual notion of integral.
+\end{example}
+
+\section{Exterior derivatives}
+
+And there is a cool notion of derivatives of forms.
+
+
+
+
+
+\end{document}
+
