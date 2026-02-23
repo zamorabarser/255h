@@ -1,0 +1,125 @@
+\documentclass{ximera}
+
+\title{Stokes again}
+\license{CC: 0}         % replace with an appropriate license, or set it in xmPreamble
+
+\begin{document}
+
+\begin{abstract}
+    Stokes again
+\end{abstract}
+
+\section{Exterior derivatives}
+
+There is a notion of derivatives of forms that generalizes the notions of classical derivative, gradient, curl, and divergence. The derivative of a smooth $k$-form is a smooth $(k+1)$-form.
+ 
+\begin{definition}
+    Let 
+    \[ \omega : = \sum_{i_1 < \ldots < i_k} P_{i_1 , \ldots , i_k} \, dx^{i_1} \wedge \ldots \wedge dx^{i_k}    \] 
+    be a smooth $k$-form in $\mathbb{R}^n$. Then its exterior derivative $d \omega$ is the smooth $(k+1)$-form defined as
+    \[    d \omega : =   \sum_{i_1 < \ldots < i_k} \sum_{j = 1}^n  \dfrac{\partial P_{i_1 , \ldots , i_k}}{\partial x^j} \, dx^j \wedge  dx^{i_1} \wedge \ldots \wedge dx^{i_k} .      \]
+\end{definition}
+
+
+\begin{example}
+In $\mathbb{R}$, if $\omega = x^3 + \sin x$, then
+\[   d \omega = ( 3x^2 + \cos x )\, dx   \]
+\end{example}
+
+\begin{example}
+In $\mathbb{R}^2$, if $\omega =  x^2 \cos y  - y e^x$, then
+\[   d \omega = (  2x \cos y - y e^x  )\, dx + (- x^2 \sin y - e^x) \, dy  \]
+\end{example}
+
+\begin{example}
+In $\mathbb{R}^3$, if $\omega =  z^3 e^x + 2 z \cos y $, then
+\[   d \omega = e^x \, dx - 2 z \sin y \, dy + (3 z^2 e^x + 2 \cos y) \, dz  \]
+\end{example}
+
+
+\begin{example}
+In $\mathbb{R}^2$, if $\omega =  x y^2 \, dx   + y \cos x \, dy $, then
+\begin{align*}
+ d \omega & = y^2 \, dx \wedge dx +  2 xy \, dy \wedge dx  - y \sin x \, dx \wedge dy + \cos x \, dy \wedge dy \\
+ & = (- y \sin x - 2 xy ) \, dx \wedge dy
+\end{align*}
+because the terms $dx \wedge dx $ and $dy \wedge dy$ are zero. Note that if we think of $\omega$ as the vector field 
+\[ F = \langle  x y^2 ,  y \cos x  \rangle ,\] 
+then 
+\[      \text{curl} (F)  = - y \sin x - 2 xy   \]
+\end{example}
+
+
+\begin{example}
+In $\mathbb{R}^3$, if $\omega =  yz \, dx   + y e^z \, dy + x^2 \, dz $, then
+\begin{align*}
+ d \omega & =  z \, dy \wedge dx + y \, dz \wedge dx +   e^z \, dy \wedge dy + y e^z \, dz \wedge dy + 2x \, dx \wedge dz \\
+ & = - y e^z \, dy \wedge dz + ( y - 2x ) \, dz \wedge dx - z \, dx \wedge dy
+\end{align*}
+Note that if we think of $\omega$ as the vector field 
+\[ F = \langle   yz , y e^z  , x^2   \rangle ,\] 
+then 
+\[      \text{Curl} (F)  =   \langle   - y e^z , y - 2x , -z              \rangle   \]
+\end{example}
+
+
+
+\begin{example}
+In $\mathbb{R}^3$, if $\omega =  x^2 y \, dy \wedge dz   + e^y \cos z \, dz \wedge dx + x ^2 \sin z \, dx \wedge dy $, then
+\begin{align*}
+ d \omega & =  2xy \, dx \wedge dy \wedge dz + e^y \cos z \, dy \wedge dz \wedge dx + x^2 \cos z \, dz \wedge dx \wedge dy \\& = ( 2xy   + e^y \cos z  + x^2 \cos z )\,  dx \wedge dy \wedge dz 
+\end{align*}
+Note that if we think of $\omega$ as the vector field 
+\[ F = \langle  x^2 y , e^y \cos z , x ^2 \sin z   \rangle ,\] 
+then 
+\[      \text{div} (F)  =   2xy   + e^y \cos z  + x^2 \cos z   \]
+\end{example}
+
+
+\begin{example}
+In $\mathbb{R}$, if $\omega = f(x)$, then
+\[   d \omega = f' (x)\, dx   \]
+\end{example}
+
+\begin{example}
+In $\mathbb{R}^2$, if $\omega =  f(x,y)$, then
+\[   d \omega =  \frac{\partial f}{\partial x} \, dx + \frac{\partial f}{\partial y} \, dy  \]
+\end{example}
+
+\begin{example}
+In $\mathbb{R}^3$, if $\omega =  f(x,y,z)  $, then
+\[   d \omega =  \frac{\partial f}{\partial x} \, dx + \frac{\partial f}{\partial y} \, dy + \frac{\partial f}{\partial z} \, dz  \]
+\end{example}
+
+
+\begin{example}
+In $\mathbb{R}^2$, if $\omega =  P  \, dx   + Q  \, dy $, then
+\[   d \omega =  \left[ \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y } \right] \, dx \wedge dy       \]
+\end{example}
+
+
+\begin{example}
+In $\mathbb{R}^3$, if $\omega =  P \, dx + Q  \, dy + R \,  dz $, then
+\[     d \omega = \left[ \frac{\partial R}{\partial y} - \frac{\partial Q}{\partial z}  \right]\, dy \wedge dz  + \left[ \frac{\partial P}{\partial z} - \frac{\partial R}{\partial x}  \right]\, dz \wedge dx  + \left[ \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}  \right]\, dx \wedge dy   \]
+\end{example}
+
+
+
+\begin{example}
+In $\mathbb{R}^3$, if $\omega =  P  \, dy \wedge dz   + Q \, dz \wedge dx + R \, dx \wedge dy $, then
+\[      d \omega  =  \left[  \frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y}  +    \frac{\partial R}{\partial z}           \right] \, dx \wedge dy \wedge dz    \] 
+\end{example}
+
+
+\begin{theorem}[Fundamental Theorem of Calculus]
+    Let $\omega $ be a smooth $k$-form in $\mathbb{R}^n$, and $M\subset \mathbb{R}^n$ an oriented $(k+1)$-dimensional manifold with boundary. Then 
+    \[   \int \cdots  \int_{\partial M} \omega = \int \cdots \int _M \, d\omega                         \]
+\end{theorem}
+
+
+
+
+
+
+\end{document}
+
